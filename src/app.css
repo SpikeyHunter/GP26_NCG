@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+/* ─── SANGU (Bazart-related content ONLY) ─────────────────────────── */
+@font-face { font-family: 'Sangu'; src: url('/fonts/Sangu-Thin.otf') format('opentype'); font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Sangu'; src: url('/fonts/Sangu-ExtraLight.otf') format('opentype'); font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Sangu'; src: url('/fonts/Sangu-Light.otf') format('opentype'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Sangu'; src: url('/fonts/Sangu-Regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Sangu'; src: url('/fonts/Sangu-Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Sangu'; src: url('/fonts/Sangu-SemiBold.otf') format('opentype'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Sangu'; src: url('/fonts/Sangu-Bold.otf') format('opentype'); font-weight: 700; font-display: swap; }
+
+/* ─── ESPERANZA STENCIL (GP26 wordmark ONLY) ──────────────────────── */
+@font-face { font-family: 'Esperanza Stencil'; src: url('/fonts/EsperanzaStencil-Roman.otf') format('opentype'); font-weight: normal; font-display: swap; }
+
+/* ─── ESPERANZA HEADLINE (Race Week branding ONLY) ────────────────── */
+@font-face { font-family: 'Esperanza Headline'; src: url('/fonts/EsperanzaHeadline-Upright.ttf') format('truetype'); font-weight: normal; font-display: swap; }
+
+/* ─── PRAGMATICA (New City Gas, Artist names, big & body text) ────── */
+@font-face { font-family: 'Pragmatica'; src: url('/fonts/Pragmatica.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Pragmatica'; src: url('/fonts/Pragmatica Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+
+:root {
+	--bg: #0a0908;
+	--bg-2: #14110f;
+	--ink: #f5f1ea;
+	--ink-dim: #a8a39a;
+	--ink-faint: #6b665e;
+	--line: #2a2520;
+	--champagne: #e8d9b7;
+	--gold: #d4af37;
+	--red: #e63946;
+	--green: #2ecc71;
+
+	--font-gp26: 'Esperanza Stencil', serif;
+	--font-raceweek: 'Esperanza Headline', serif;
+	--font-display: 'Pragmatica', sans-serif;
+	--font-body: 'Pragmatica', sans-serif;
+	--font-bazart: 'Sangu', serif;
+}
+
+html, body {
+	background: var(--bg);
+	color: var(--ink);
+	font-family: var(--font-body);
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+/* Global Utility Classes */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+@media (max-width: 768px) { .container { padding: 0 20px; } }
+
+.section-eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.25em; color: var(--ink-dim); margin-bottom: 16px; }
+.section-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(48px, 7vw, 96px); line-height: 0.95; letter-spacing: -0.03em; margin: 0 0 48px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-decoration: none; border: 1px solid transparent; transition: all 0.2s; cursor: pointer; }
+.btn-primary { background: var(--ink); color: var(--bg); }
+.btn-primary:hover { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--bg); }

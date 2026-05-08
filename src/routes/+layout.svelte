@@ -1,9 +1,16 @@
 <script lang="ts">
-	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
-
+	import '../app.css';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	let { children } = $props();
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
-{@render children()}
+<svelte:head>
+	<title>GP26 — Race Week at New City Gas</title>
+</svelte:head>
+
+<Header />
+<main>
+	{@render children()}
+</main>
+<Footer />
