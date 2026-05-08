@@ -40,4 +40,10 @@
 
 	.btn-champagne { background: var(--champagne); color: var(--bg); font-family: var(--font-body); }
 	.btn-champagne:hover { background: transparent; color: var(--champagne); border-color: var(--champagne); }
+    @media (max-width: 768px) {
+		section { padding: 64px 0; }
+		.bazart { padding: 64px 0; }
+		.bazart-grid { gap: 32px; }
+		.bazart-desc { margin-bottom: 24px; }
+	}
 </style>

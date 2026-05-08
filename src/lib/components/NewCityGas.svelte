@@ -31,4 +31,10 @@
 	.venue-address { font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--ink-dim); margin: 0 0 24px; }
 	.venue-desc { color: var(--ink-dim); line-height: 1.6; font-size: 16px; margin: 0 0 32px; max-width: 480px; font-family: var(--font-body); }
 	.venue-image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 1px solid var(--line); }
+    @media (max-width: 768px) {
+		section { padding: 64px 0; }
+		.venue { padding: 64px 0; }
+		.venue-grid { gap: 32px; }
+		.venue-desc { margin-bottom: 24px; }
+	}
 </style>

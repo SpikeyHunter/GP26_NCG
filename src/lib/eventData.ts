@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════════
 //  GP26 EVENT DATA
-//  Image URLs live in /src/lib/images.ts — only edit text/times here.
+//  Image URLs live in /src/lib/images.ts — only edit text here.
 // ═══════════════════════════════════════════════════════════════════
 
 import { lineup, setup } from './images';
@@ -10,9 +10,10 @@ export interface Show {
 	supporting?: string[];
 	venue: 'NEW CITY GAS' | 'BAZART';
 	posterUrl: string;
+	posterVideoUrl?: string;
 	setupImageUrl?: string;
-	setTimes: { time: string; act: string }[];
 	aboutArtist: string;
+	setTimes: { time: string; act: string }[]; // <--- Added this back!
 	ticketUrl: string;
 	reservationUrl: string;
 	accentColor: string;
@@ -29,7 +30,6 @@ export interface EventDay {
 }
 
 export const eventDays: EventDay[] = [
-	// ─── THURSDAY 21 MAY ─────────────────────────────────────────────
 	{
 		date: '21',
 		dayName: 'JEUDI',
@@ -42,21 +42,21 @@ export const eventDays: EventDay[] = [
 				supporting: ['B2B MAXI MERAKI', 'B2B LUCH', 'PASKAL DAZE'],
 				venue: 'NEW CITY GAS',
 				posterUrl: lineup.flyer_may21_nico,
+				posterVideoUrl: lineup.flyer_may21_nico_video,
 				setupImageUrl: setup.main_room,
+				aboutArtist:
+					'French producer and DJ Nico De Andrea is known for blending emotive pop, afro house, and techno into melodic, energetic sets. With over 100 million Spotify streams and performances in more than 40 countries, he has earned support from artists like Black Coffee, Solomun, and Diplo while playing iconic venues including Pacha Ibiza and Ministry of Sound.',
 				setTimes: [
 					{ time: '22:00', act: 'PASKAL DAZE' },
 					{ time: '23:30', act: 'NICO DE ANDREA B2B MAXI MERAKI B2B LUCH' },
 					{ time: '03:00', act: 'CLOSE' }
 				],
-				aboutArtist:
-					'A monolithic B2B2B set bringing three of the most in-demand names in melodic house and techno together for one night. Nico De Andrea, Maxi Meraki, and LUCH lock in for an extended journey into euphoric, driving electronics — the perfect kick-off to GP26 Race Week.',
 				ticketUrl: '#tickets',
 				reservationUrl: '#tickets',
 				accentColor: '#FFFFFF'
 			}
 		]
 	},
-	// ─── FRIDAY 22 MAY ───────────────────────────────────────────────
 	{
 		date: '22',
 		dayName: 'VENDREDI',
@@ -70,14 +70,14 @@ export const eventDays: EventDay[] = [
 				venue: 'NEW CITY GAS',
 				posterUrl: lineup.flyer_may22_kaytranada,
 				setupImageUrl: setup.main_room,
+				aboutArtist:
+					'Grammy-winning Montreal hometown hero. Kaytranada returns to New City Gas for an exclusive DJ set during F1 weekend, joined by Lou Phelps and Del Arte. A genre-defying night of soulful house, hip-hop, and beats that built a global movement.',
 				setTimes: [
 					{ time: '22:00', act: 'DEL ARTE' },
 					{ time: '23:30', act: 'LOU PHELPS' },
 					{ time: '01:00', act: 'KAYTRANADA (DJ SET)' },
 					{ time: '03:00', act: 'CLOSE' }
 				],
-				aboutArtist:
-					'Grammy-winning Montreal hometown hero. Kaytranada returns to New City Gas for an exclusive DJ set during F1 weekend, joined by Lou Phelps and Del Arte. A genre-defying night of soulful house, hip-hop, and beats that built a global movement.',
 				ticketUrl: '#tickets',
 				reservationUrl: '#tickets',
 				accentColor: '#D4AF37',
@@ -89,14 +89,14 @@ export const eventDays: EventDay[] = [
 				venue: 'BAZART',
 				posterUrl: lineup.flyer_may22_pauza,
 				setupImageUrl: setup.bazart_setup,
+				aboutArtist:
+					"Italian duo PAUZA bring their signature hypnotic, organic house sound to Bazart. With releases on Solomun's Diynamic and Crosstown Rebels, sisters Giulia and Alice deliver an intimate, sun-drenched journey perfect for the elevated Bazart experience.",
 				setTimes: [
 					{ time: '22:00', act: 'EVIATAR' },
 					{ time: '23:30', act: 'LAURA SCAVO' },
 					{ time: '01:00', act: 'PAUZA' },
 					{ time: '03:00', act: 'CLOSE' }
 				],
-				aboutArtist:
-					"Italian duo PAUZA bring their signature hypnotic, organic house sound to Bazart. With releases on Solomun's Diynamic and Crosstown Rebels, sisters Giulia and Alice deliver an intimate, sun-drenched journey perfect for the elevated Bazart experience.",
 				ticketUrl: '#tickets',
 				reservationUrl: '#tickets',
 				accentColor: '#E8D9B7',
@@ -104,7 +104,6 @@ export const eventDays: EventDay[] = [
 			}
 		]
 	},
-	// ─── SATURDAY 23 MAY ─────────────────────────────────────────────
 	{
 		date: '23',
 		dayName: 'SAMEDI',
@@ -118,14 +117,14 @@ export const eventDays: EventDay[] = [
 				venue: 'NEW CITY GAS',
 				posterUrl: lineup.flyer_may23_jameshype,
 				setupImageUrl: setup.main_room,
+				aboutArtist:
+					'The man behind "Ferrari" and one of the most explosive live acts in dance music. James Hype brings his high-energy tech-house mastery to Saturday night — expect rapid-fire mixing, viral edits, and a peak-time experience built for the GP weekend.',
 				setTimes: [
 					{ time: '22:00', act: 'STEF AGOSTINO' },
 					{ time: '23:30', act: 'DANSYN' },
 					{ time: '01:00', act: 'JAMES HYPE' },
 					{ time: '03:00', act: 'CLOSE' }
 				],
-				aboutArtist:
-					'The man behind "Ferrari" and one of the most explosive live acts in dance music. James Hype brings his high-energy tech-house mastery to Saturday night — expect rapid-fire mixing, viral edits, and a peak-time experience built for the GP weekend.',
 				ticketUrl: '#tickets',
 				reservationUrl: '#tickets',
 				accentColor: '#E63946',
@@ -137,14 +136,14 @@ export const eventDays: EventDay[] = [
 				venue: 'BAZART',
 				posterUrl: lineup.flyer_may23_maesic,
 				setupImageUrl: setup.bazart_setup,
+				aboutArtist:
+					'Croatian producer Maesic crafts emotive, melodic house with cinematic depth. With co-signs from Solomun and a steady stream of Diynamic releases, his Bazart set is built for the long, atmospheric peak of Saturday night.',
 				setTimes: [
 					{ time: '22:00', act: 'MALENA' },
 					{ time: '23:30', act: 'SIMON FITCH' },
 					{ time: '01:00', act: 'MAESIC' },
 					{ time: '03:00', act: 'CLOSE' }
 				],
-				aboutArtist:
-					'Croatian producer Maesic crafts emotive, melodic house with cinematic depth. With co-signs from Solomun and a steady stream of Diynamic releases, his Bazart set is built for the long, atmospheric peak of Saturday night.',
 				ticketUrl: '#tickets',
 				reservationUrl: '#tickets',
 				accentColor: '#E8D9B7',
@@ -152,7 +151,6 @@ export const eventDays: EventDay[] = [
 			}
 		]
 	},
-	// ─── SUNDAY 24 MAY ───────────────────────────────────────────────
 	{
 		date: '24',
 		dayName: 'DIMANCHE',
@@ -166,14 +164,14 @@ export const eventDays: EventDay[] = [
 				venue: 'NEW CITY GAS',
 				posterUrl: lineup.flyer_may24_timmy,
 				setupImageUrl: setup.main_room,
+				aboutArtist:
+					'The trumpet-wielding global headliner closing out GP26. Timmy Trumpet brings festival-level energy with anthems played by every major DJ on the planet — supported by TWINSICK and MVNGO. The race-day finale.',
 				setTimes: [
 					{ time: '22:00', act: 'MVNGO' },
 					{ time: '23:30', act: 'TWINSICK' },
 					{ time: '01:00', act: 'TIMMY TRUMPET' },
 					{ time: '03:00', act: 'CLOSE' }
 				],
-				aboutArtist:
-					'The trumpet-wielding global headliner closing out GP26. Timmy Trumpet brings festival-level energy with anthems played by every major DJ on the planet — supported by TWINSICK and MVNGO. The race-day finale.',
 				ticketUrl: '#tickets',
 				reservationUrl: '#tickets',
 				accentColor: '#2ECC71',
