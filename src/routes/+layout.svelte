@@ -11,12 +11,12 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="GP26 — Race Week at New City Gas" />
 	<meta property="og:description" content="Four Nights. One Weekend. All gas no brakes." />
-	<meta property="og:image" content="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Thumbnail.jpg" />
+	<meta property="og:image" content="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Thumbnail2.jpg" />
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="GP26 — Race Week at New City Gas" />
 	<meta name="twitter:description" content="Four Nights. One Weekend. All gas no brakes." />
-	<meta name="twitter:image" content="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Thumbnail.jpg" />
+	<meta name="twitter:image" content="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Thumbnail2.jpg" />
 </svelte:head>
 
 <Header />
