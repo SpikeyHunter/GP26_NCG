@@ -104,7 +104,7 @@
 		}
 		.venue-logo {
 			max-width: 260px;
-			margin-left: 0;
+			margin-left: -20px;
 		}
 		.venue-tagline {
 			font-size: 24px;
