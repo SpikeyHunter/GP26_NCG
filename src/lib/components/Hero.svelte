@@ -12,7 +12,7 @@
 
 	<div class="hero-video-wrapper">
 		<video
-			src="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/GP26_Video-Animation.mov"
+			src="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/hero/GP26_Video-Animation.mov"
 			autoplay
 			loop
 			muted
@@ -103,7 +103,7 @@
 	.hero-sub-venue {
 		font-family: var(--font-display);
 		font-weight: 550;
-        color: var(--ink);
+		color: var(--ink);
 
 		/* Use a negative value to pull letters closer together */
 		letter-spacing: -0.055em;
@@ -118,7 +118,13 @@
 		.hero {
 			/* min-height: 80vh; <--- REMOVE THIS */
 			padding-top: 100px;
-			padding-bottom: 22px; /* <--- ADD THIS for a tight mobile gap */
+			padding-bottom: 22px;
+		}
+
+		/* Forces "AT NEW CITY GAS" to drop to the next line on mobile */
+		.hero-sub-venue {
+			display: block;
+			margin-top: 4px; /* Adjust this to pull it closer to or further from RACE WEEK */
 		}
 	}
 </style>

@@ -6,7 +6,6 @@
 	function mediaAlternator(node: HTMLElement) {
 		const img = node.querySelector('img') as HTMLImageElement | null;
 		const vid = node.querySelector('video') as HTMLVideoElement | null;
-
 		if (!img || !vid) return;
 
 		let timeout: ReturnType<typeof setTimeout>;
@@ -15,29 +14,35 @@
 			if (!img || !vid) return;
 			img.style.opacity = '1';
 			vid.style.opacity = '0';
+			vid.pause();
+			vid.currentTime = 0;
 
-			// Wait 2 seconds WITH the image showing, rewind the video in the background so it doesn't stutter
 			timeout = setTimeout(() => {
 				if (!img || !vid) return;
-				vid.currentTime = 0;
 				img.style.opacity = '0';
 				vid.style.opacity = '1';
 				vid.play().catch(() => {
 					img.style.opacity = '1';
 				});
-			}, 4000);
+			}, 3000);
 		}
 
-		// When the video finishes, trigger the image again
-		vid.addEventListener('ended', showImage);
+		// New listener to stop video at 5 seconds
+		const handleTimeUpdate = () => {
+			if (vid && vid.currentTime >= 6) {
+				showImage();
+			}
+		};
 
-		// Start the cycle
+		vid.addEventListener('timeupdate', handleTimeUpdate);
+		vid.addEventListener('ended', showImage);
 		showImage();
 
 		return {
 			destroy() {
 				clearTimeout(timeout);
-				if (vid) vid.removeEventListener('ended', showImage);
+				vid.removeEventListener('timeupdate', handleTimeUpdate);
+				vid.removeEventListener('ended', showImage);
 			}
 		};
 	}
@@ -46,7 +51,9 @@
 <section id="lineup" class="lineup">
 	<div class="container">
 		<div class="section-header lineup-header">
-			<span class="section-eyebrow lineup-eyebrow">→ THE LINEUP</span>
+			<span class="section-eyebrow lineup-eyebrow"
+				><span style="font-family: Arial, sans-serif;">&rarr;</span> THE LINEUP</span
+			>
 			<h2 class="section-title lineup-title">FOUR NIGHTS.<br />ONE WEEKEND.</h2>
 		</div>
 
@@ -121,20 +128,21 @@
 </section>
 
 <style>
-	/* Tighter top padding */
+	/* Greatly reduced top and bottom padding */
 	.lineup {
-		padding: 80px 0;
+		padding: 40px 0;
 		border-top: 1px solid var(--line);
 	}
 
-	/* Adjusted Header Fonts */
+	/* Reduced gaps around the headers */
 	.lineup-header {
-		margin-bottom: 32px;
+		margin-bottom: 20px;
 	}
 	.lineup-eyebrow {
-		font-size: 18px;
+		font-size: 16px;
 		color: var(--ink);
-		margin-bottom: 8px;
+		margin-bottom: 4px;
+		display: inline-block;
 	}
 	.lineup-title {
 		font-size: clamp(28px, 4vw, 56px);
@@ -146,7 +154,7 @@
 	.day-tabs {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		margin-bottom: 40px;
+		margin-bottom: 32px;
 		border-top: 1px solid var(--line);
 		border-bottom: 1px solid var(--line);
 	}
@@ -154,7 +162,7 @@
 		background: transparent;
 		border: none;
 		border-right: 1px solid var(--line);
-		padding: 24px 16px;
+		padding: 16px;
 		color: var(--ink-dim);
 		display: flex;
 		flex-direction: column;
@@ -188,7 +196,7 @@
 	}
 	.tab-date {
 		font-family: var(--font-display);
-		font-size: 48px;
+		font-size: 40px;
 		font-weight: 700;
 		line-height: 1;
 	}
@@ -198,11 +206,10 @@
 		letter-spacing: 0.2em;
 	}
 
-	/* Show List & Rows */
 	.shows-list {
 		display: flex;
 		flex-direction: column;
-		gap: 32px;
+		gap: 24px;
 		animation: fade-in 0.5s ease;
 	}
 	@keyframes fade-in {
@@ -219,14 +226,17 @@
 	/* Base Show Row (Single Event) */
 	.show-row {
 		display: grid;
-		grid-template-columns: 350px 1fr;
+		grid-template-columns: 400px 1fr; /* Flyer takes exactly 400px */
 		gap: 32px;
 		background: var(--bg-2);
 		border: 1px solid var(--line);
 		border-left: 4px solid var(--show-accent);
+		min-height: 480px; /* Locks the height so it perfectly matches dual events */
 	}
+
 	.show-left {
 		position: relative;
+		height: 100%;
 	}
 
 	/* SIDE-BY-SIDE LOGIC (Dual Events) */
@@ -236,34 +246,20 @@
 		gap: 24px;
 	}
 	.shows-list.is-dual .show-row {
-		grid-template-columns: 240px 1fr;
-		gap: 24px;
-	} /* Flyer side-by-side with info inside the 50% split */
-	.shows-list.is-dual .show-right {
-		padding: 32px 32px 32px 0;
+		grid-template-columns: 1fr 1fr; /* 50/50 internal split */
+		gap: 0;
+		min-height: 480px; /* Same locked height */
 	}
 
+	/* Media takes 100% of whatever height the card is */
 	.media-container {
 		position: relative;
 		width: 100%;
 		height: 100%;
-		min-height: 400px;
 		overflow: hidden;
 		background: #000;
 	}
-	.shows-list.is-dual .media-container {
-		min-height: 100%;
-	} /* Stretches to match text height on dual */
-
-	.show-poster {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover; /* <--- Changed from contain to cover */
-		display: block;
-		transition: opacity 0.3s ease-in-out;
-	}
+	.show-poster,
 	.show-video {
 		position: absolute;
 		inset: 0;
@@ -274,15 +270,40 @@
 		transition: opacity 0.3s ease-in-out;
 	}
 
-	/* Info Text Block */
+	/* Single Event Info Block */
 	.show-right {
-		padding: 32px 32px 32px 0;
+		padding: 40px 40px 40px 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 	}
 
+	/* Dual Event Info Block Tweaks (To make it fit perfectly without expanding) */
+	.shows-list.is-dual .show-right {
+		padding: 24px;
+	}
+	.shows-list.is-dual .show-artist {
+		font-size: clamp(20px, 2.5vw, 36px);
+		margin-bottom: 6px;
+	}
+	.shows-list.is-dual .show-bio {
+		font-size: 13px;
+		line-height: 1.4;
+		margin-bottom: 16px;
+	}
+	.shows-list.is-dual .show-actions {
+		flex-direction: column;
+		gap: 8px;
+	}
+	.shows-list.is-dual .show-actions .btn {
+		width: 100%;
+	}
+
+	/* Common Text Styles */
 	.show-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 4px;
 		margin-bottom: 12px;
 		font-size: 10px;
 		font-weight: 700;
@@ -292,22 +313,20 @@
 	.show-sponsor {
 		color: var(--ink-faint);
 	}
-
 	.show-artist {
 		font-family: var(--font-display);
 		font-weight: 700;
-		font-size: clamp(24px, 4vw, 48px);
+		font-size: clamp(32px, 4vw, 56px);
 		line-height: 1;
-		margin: 0 0 8px;
+		margin: 0 0 12px;
 		text-transform: uppercase;
 	}
 	.show-supporting {
 		font-size: 13px;
 		font-weight: 400;
 		color: var(--ink-dim);
-		margin: 0 0 20px;
+		margin: 0 0 16px;
 	}
-
 	.show-bio {
 		font-size: 14px;
 		line-height: 1.6;
@@ -322,30 +341,34 @@
 
 	/* 📱 MOBILE FIXES */
 	@media (max-width: 1200px) {
-		/* Collapse dual events back to a single column on medium laptops/tablets to prevent squishing */
 		.shows-list.is-dual {
 			grid-template-columns: 1fr;
 		}
 		.shows-list.is-dual .show-row {
-			grid-template-columns: 350px 1fr;
+			grid-template-columns: 400px 1fr;
 			gap: 32px;
+		}
+		.shows-list.is-dual .show-right {
+			padding: 40px 40px 40px 0;
+		}
+		.shows-list.is-dual .show-actions {
+			flex-direction: row;
+		}
+		.shows-list.is-dual .show-actions .btn {
+			width: auto;
 		}
 	}
 
 	@media (max-width: 900px) {
 		.lineup {
-			padding: 48px 0;
+			padding: 32px 0;
 		}
-		.lineup-header {
-			margin-bottom: 24px;
-		}
-
 		.day-tabs {
 			grid-template-columns: repeat(2, 1fr);
 			margin-bottom: 24px;
 		}
 		.day-tab {
-			padding: 16px 12px;
+			padding: 12px;
 			align-items: center;
 			border-bottom: 1px solid var(--line);
 		}
@@ -357,28 +380,22 @@
 		.show-row,
 		.shows-list.is-dual .show-row {
 			grid-template-columns: 1fr;
+			min-height: auto;
 			gap: 0;
 		}
-
 		.media-container {
-			position: relative;
-			width: 100%;
-			aspect-ratio: 3 / 4; /* <--- 900x1200 proportion */
-			overflow: hidden;
-			background: #000;
+			aspect-ratio: 1/1;
+			height: auto;
+			border-bottom: 1px solid var(--line);
 		}
 
-		.shows-list.is-dual .media-container {
-			min-height: auto;
-		}
 		.show-right,
 		.shows-list.is-dual .show-right {
 			padding: 24px;
 		}
 		.show-artist {
-			font-size: clamp(24px, 8vw, 36px);
+			font-size: clamp(28px, 8vw, 40px);
 		}
-
 		.show-actions {
 			flex-direction: column;
 			gap: 12px;

@@ -13,7 +13,7 @@ export interface Show {
 	posterVideoUrl?: string;
 	setupImageUrl?: string;
 	aboutArtist: string;
-	setTimes: { time: string; act: string }[]; // <--- Added this back!
+	setTimes: { time: string; act: string }[];
 	ticketUrl: string;
 	reservationUrl: string;
 	accentColor: string;
@@ -53,7 +53,7 @@ export const eventDays: EventDay[] = [
 				],
 				ticketUrl: '#tickets',
 				reservationUrl: '#tickets',
-				accentColor: '#FFFFFF'
+				accentColor: '#DEDEDE'
 			}
 		]
 	},
@@ -69,6 +69,7 @@ export const eventDays: EventDay[] = [
 				supporting: ['DJ SET', 'LOU PHELPS', 'DEL ARTE'],
 				venue: 'NEW CITY GAS',
 				posterUrl: lineup.flyer_may22_kaytranada,
+				posterVideoUrl: lineup.flyer_may22_kaytranada_video, // <-- ADDED
 				setupImageUrl: setup.main_room,
 				aboutArtist:
 					'Grammy-winning Montreal hometown hero. Kaytranada returns to New City Gas for an exclusive DJ set during F1 weekend, joined by Lou Phelps and Del Arte. A genre-defying night of soulful house, hip-hop, and beats that built a global movement.',
@@ -80,7 +81,7 @@ export const eventDays: EventDay[] = [
 				],
 				ticketUrl: '#tickets',
 				reservationUrl: '#tickets',
-				accentColor: '#D4AF37',
+				accentColor: '#C2A666',
 				sponsor: 'PATRÓN TEQUILA'
 			},
 			{
@@ -88,6 +89,7 @@ export const eventDays: EventDay[] = [
 				supporting: ['LAURA SCAVO', 'EVIATAR'],
 				venue: 'BAZART',
 				posterUrl: lineup.flyer_may22_pauza,
+				posterVideoUrl: lineup.flyer_may22_pauz_video, // <-- ADDED
 				setupImageUrl: setup.bazart_setup,
 				aboutArtist:
 					"Italian duo PAUZA bring their signature hypnotic, organic house sound to Bazart. With releases on Solomun's Diynamic and Crosstown Rebels, sisters Giulia and Alice deliver an intimate, sun-drenched journey perfect for the elevated Bazart experience.",
@@ -116,6 +118,7 @@ export const eventDays: EventDay[] = [
 				supporting: ['DANSYN', 'STEF AGOSTINO'],
 				venue: 'NEW CITY GAS',
 				posterUrl: lineup.flyer_may23_jameshype,
+				posterVideoUrl: lineup.flyer_may23_jameshype_video, // <-- ADDED
 				setupImageUrl: setup.main_room,
 				aboutArtist:
 					'The man behind "Ferrari" and one of the most explosive live acts in dance music. James Hype brings his high-energy tech-house mastery to Saturday night — expect rapid-fire mixing, viral edits, and a peak-time experience built for the GP weekend.',
@@ -127,7 +130,7 @@ export const eventDays: EventDay[] = [
 				],
 				ticketUrl: '#tickets',
 				reservationUrl: '#tickets',
-				accentColor: '#E63946',
+				accentColor: '#DF2A44',
 				sponsor: 'ORACLE RED BULL RACING'
 			},
 			{
@@ -135,6 +138,7 @@ export const eventDays: EventDay[] = [
 				supporting: ['SIMON FITCH', 'MALENA'],
 				venue: 'BAZART',
 				posterUrl: lineup.flyer_may23_maesic,
+				posterVideoUrl: lineup.flyer_may23_maesic_video, // <-- ADDED
 				setupImageUrl: setup.bazart_setup,
 				aboutArtist:
 					'Croatian producer Maesic crafts emotive, melodic house with cinematic depth. With co-signs from Solomun and a steady stream of Diynamic releases, his Bazart set is built for the long, atmospheric peak of Saturday night.',
@@ -163,6 +167,7 @@ export const eventDays: EventDay[] = [
 				supporting: ['TWINSICK', 'INVITÉS SPÉCIAUX', 'MVNGO'],
 				venue: 'NEW CITY GAS',
 				posterUrl: lineup.flyer_may24_timmy,
+				posterVideoUrl: lineup.flyer_may24_timmy_video, // <-- ADDED
 				setupImageUrl: setup.main_room,
 				aboutArtist:
 					'The trumpet-wielding global headliner closing out GP26. Timmy Trumpet brings festival-level energy with anthems played by every major DJ on the planet — supported by TWINSICK and MVNGO. The race-day finale.',
@@ -174,7 +179,7 @@ export const eventDays: EventDay[] = [
 				],
 				ticketUrl: '#tickets',
 				reservationUrl: '#tickets',
-				accentColor: '#2ECC71',
+				accentColor: '#44AA41',
 				sponsor: 'HEINEKEN'
 			}
 		]
@@ -182,7 +187,7 @@ export const eventDays: EventDay[] = [
 ];
 
 export const siteConfig = {
-	venueAddress: '950 Rue Ottawa, Montréal, QC',
+	venueAddress: '950 Rue Ottawa, Montreal, QC',
 	venueMapUrl: 'https://maps.google.com/?q=New+City+Gas+Montreal',
 	bazartTagline: 'A more intimate, elevated experience adjacent to the main floor.',
 	socials: {

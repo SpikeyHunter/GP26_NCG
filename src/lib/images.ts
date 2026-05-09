@@ -4,18 +4,23 @@
 
 // ─── HERO ────────────────────────────────────────────────────────────
 export const hero = {
-	background: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Hero_BG_Car.jpg'
+	background: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/hero/Hero_BG_Car.jpg'
 };
 
 // ─── LINEUP (event flyers) ───────────────────────────────────────────
 export const lineup = {
-	flyer_may21_nico:       'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/NicoAndrea3.jpg',
-	flyer_may21_nico_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Nico_Video.webm',
-	flyer_may22_kaytranada: 'https://placehold.co/1080x1440/0a0a0a/D4AF37?text=KAYTRANADA',
-	flyer_may22_pauza:      'https://placehold.co/1080x1440/2a1f17/E8D9B7?text=PAUZA',
-	flyer_may23_jameshype:  'https://placehold.co/1080x1440/2a0a0a/E63946?text=JAMES+HYPE',
-	flyer_may23_maesic:     'https://placehold.co/1080x1440/2a1f17/E8D9B7?text=MAESIC',
-	flyer_may24_timmy:      'https://placehold.co/1080x1440/0a2a14/2ECC71?text=TIMMY+TRUMPET'
+	flyer_may21_nico:       'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Nico4.jpg',
+	flyer_may21_nico_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Nico_Video3.webm',
+	flyer_may22_kaytranada: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Kay2.jpg',
+    flyer_may22_kaytranada_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Kay_Video.webm',
+	flyer_may22_pauza:      'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Pauza2.jpg',
+    flyer_may22_pauz_video:  'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Pauza_Video.webm',
+	flyer_may23_jameshype:  'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/James2.jpg',
+	flyer_may23_jameshype_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/James_Video.webm',
+	flyer_may23_maesic:     'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Maesic2.jpg',
+	flyer_may23_maesic_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Maesic_Video.webm',
+	flyer_may24_timmy:      'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Timmy1.jpg',
+	flyer_may24_timmy_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Timmy_Video.webm',
 };
 
 // ─── SETUP / VENUE / DSTRKT photos ───────────────────────────────────
@@ -32,24 +37,25 @@ export const newCityGas = {
 
 // ─── BAZART section ──────────────────────────────────────────────────
 export const bazart = {
-	gallery_1: 'https://placehold.co/800x1000/2a1f17/E8D9B7?text=BAZART+1',
-	gallery_2: 'https://placehold.co/800x600/2a1f17/E8D9B7?text=BAZART+2',
-	gallery_3: 'https://placehold.co/800x600/2a1f17/E8D9B7?text=BAZART+3'
+	gallery_1: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Bazart%20Nuits/Bazart1.jpeg',
+	gallery_2: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Bazart%20Nuits/Bazart2.jpeg',
+	gallery_3: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Bazart%20Nuits/Bazart3.jpeg',
+	gallery_4: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Bazart%20Nuits/Bazart4.jpeg' // <-- ADDED THIS LINE
 };
 
 // ─── RESTAURANT section ──────────────────────────────────────────────
 export const restaurant = {
-	hero:   'https://placehold.co/1200x900/1a1410/D4AF37?text=RESTAURANT',
-	dish_1: 'https://placehold.co/600x600/1a1410/D4AF37?text=DISH+1',
-	dish_2: 'https://placehold.co/600x600/1a1410/D4AF37?text=DISH+2',
-	dish_3: 'https://placehold.co/600x600/1a1410/D4AF37?text=DISH+3'
+	hero:   'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Bg-Bazart.1.jpeg',
+	dish_1: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Food-1.1.jpeg',
+	dish_2: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Food-2.2.jpeg',
+	dish_3: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Food-3.3.jpeg'
 };
 
 // ─── NFT GALLERY section ─────────────────────────────────────────────
 export const nft = {
 	hero:    'https://placehold.co/1200x900/050505/E8D9B7?text=NFT+GALLERY',
-	piece_1: 'https://placehold.co/800x800/050505/E8D9B7?text=PIECE+1',
-	piece_2: 'https://placehold.co/800x800/050505/E8D9B7?text=PIECE+2',
-	piece_3: 'https://placehold.co/800x800/050505/E8D9B7?text=PIECE+3',
-	piece_4: 'https://placehold.co/800x800/050505/E8D9B7?text=PIECE+4'
+	piece_1: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/NFT/NFT1.jpeg',
+	piece_2: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/NFT/NFT2.jpeg',
+	piece_3: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/NFT/NFT3.jpeg',
+	piece_4: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/NFT/NFT4.jpeg'
 };
