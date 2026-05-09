@@ -25,7 +25,7 @@
 					Bazart hosts an intimate, refined parallel program during GP26. Curated for those who want
 					the energy of race week with the atmosphere of a private soirée.
 				</p>
-				<a href="#tickets" class="btn btn-champagne">BAZART RESERVATIONS</a>
+				<a href="https://www.opentable.ca/r/bazart-reservations-montreal?restref=1233340&lang=fr-CA&ot_source=Restaurant%20website&ot_campaign=2025%20Website%20Widget?font=trebuchetMs" class="btn btn-champagne">BAZART RESERVATIONS</a>
 			</div>
 		</div>
 	</div>
