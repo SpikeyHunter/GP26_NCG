@@ -187,7 +187,7 @@
 	}
 
 	.schedule-day {
-		border: 0.1px solid var(--day-accent);
+		border-left: 0.0px solid var(--day-accent);
 		padding: 20px;
 		display: grid;
 		/* 3 rows: header, first show, second show — second row aligns across all days */

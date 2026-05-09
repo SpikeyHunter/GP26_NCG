@@ -49,39 +49,44 @@
 	}
 	.venue-logo {
 		width: 100%;
-		max-width: 500px;
+		max-width: 300px;
 		height: auto;
-		margin-bottom: 0px;
-        margin-left: -40px;
+		margin-bottom: -10px;
+        margin-left: -20px;
 		display: block;
+        opacity: 0.9;
 	}
 	.venue-tagline {
 		font-family: var(--font-display);
 		font-weight: 700;
-		font-size: 42px;
+		font-size: 48px;
+        letter-spacing: -2%;
 		line-height: 1;
 		color: var(--ink-dim);
-		margin: 0 0 6px;
+		margin: 0 0 0px;
 		text-transform: uppercase;
 		white-space: nowrap;
 	}
 	.venue-address {
 		font-family: var(--font-body);
 		font-weight: 600;
-		font-size: 14px;
+		font-size: 12px;
 		letter-spacing: 0.15em;
 		text-transform: uppercase;
 		color: var(--ink);
-		margin: 0 0 24px;
+		margin: 0 0 32px;
+        opacity: 0.5;
+        margin-left: 0px;
 	}
 	.venue-desc {
-		text-align: justify;
+		text-wrap: balance;
 		color: var(--ink);
-		line-height: 1.6;
-		font-size: 16px;
+		line-height: 1.5;
+		font-size: 15px;
 		margin: 0 0 32px;
 		max-width: 520px;
 		font-family: var(--font-body);
+        opacity: 0.9;
 	}
 	.venue-image img {
 		width: 100%;

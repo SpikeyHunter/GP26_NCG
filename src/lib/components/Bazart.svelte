@@ -50,24 +50,24 @@
 	}
 	.bazart-logo {
 		width: 100%;
-		max-width: 180px;
+		max-width: 160px;
 		height: auto;
 		display: block;
-		margin-bottom: 40px;
+		margin-bottom: 20px;
 		margin-left: 0px;
 	}
 	.bazart-title {
 		color: var(--champagne);
 		font-family: var(--font-bazart);
 		font-weight: 600;
-		font-size: clamp(36px, 4.5vw, 56px);
+		font-size: clamp(46px, 4.5vw, 66px);
 		line-height: 1;
 		margin: 0 0 28px;
 		white-space: nowrap;
 	}
 	.bazart-desc {
 		color: var(--champagne);
-		line-height: 1.65;
+		line-height: 1.5;
 		font-size: 17px;
 		margin: 0 0 20px;
 		max-width: 480px;
