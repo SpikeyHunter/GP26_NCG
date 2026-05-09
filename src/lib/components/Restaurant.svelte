@@ -63,8 +63,11 @@
 		.restaurant {
 			padding: 48px 0;
 		}
+		.hero-image {
+			margin-bottom: 12px;
+		}
 		.dish-grid {
-			grid-template-columns: 1fr;
+			gap: 12px;
 		}
 	}
 </style>

@@ -146,7 +146,11 @@
 					{#if activeDay === i}
 						<div class="shows-list" class:is-dual={day.shows.length > 1}>
 							{#each day.shows as show}
-								<div class="show-row" style="--show-accent: {show.accentColor}">
+								<div
+									class="show-row"
+									data-date={String(day.date)}
+									style="--show-accent: {show.accentColor}"
+								>
 									<!-- ROW 1 (mobile): flyer left + venue/sponsor/headliner/supporting right -->
 									<div class="show-top">
 										<div class="show-left">
@@ -192,7 +196,7 @@
 									<!-- ROW 3 (mobile): actions -->
 									<div class="show-actions">
 										<a href={show.ticketUrl} class="btn btn-primary">BUY TICKETS</a>
-										<a href={show.reservationUrl} class="btn btn-ghost">RESERVE A TABLE</a>
+										<a href={show.reservationUrl} class="btn btn-ghost">BOOK A TABLE</a>
 									</div>
 								</div>
 							{/each}
@@ -325,7 +329,7 @@
 	}
 
 	/* ─────────────────────────────────────────────────────────
-	   SHOWS — Desktop layout (poster left, info right)
+	   SHOWS — Desktop layout (poster left full-height, info right stacked)
 	   ───────────────────────────────────────────────────────── */
 	.shows-stage {
 		--row-height: 480px;
@@ -350,11 +354,13 @@
 		}
 	}
 
-	/* DESKTOP: show-row is a 2-col grid (poster | info) */
+	/* DESKTOP: show-row is a 2-col grid (poster | info-stack) with explicit rows
+	   so headline / bio / actions stack vertically while the poster spans them all. */
 	.show-row {
 		display: grid;
 		grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
-		gap: 32px;
+		grid-template-rows: auto 1fr auto;
+		gap: 0 32px;
 		background: var(--bg-2);
 		height: var(--row-height);
 		align-items: stretch;
@@ -365,29 +371,30 @@
 		display: contents;
 	}
 
+	/* Poster: column 1, spans ALL rows so it's full-height (preserves the original 3:4-ish ratio) */
 	.show-left {
 		position: relative;
+		grid-column: 1;
+		grid-row: 1 / -1;
 		height: 100%;
 		width: 100%;
 		max-width: 100%;
 		min-width: 0;
 	}
 
-	/* Headline + bio + actions stacked in the right column on desktop */
-	.show-headline,
-	.show-bio,
-	.show-actions {
-		grid-column: 2;
-	}
-
+	/* Right column stack */
 	.show-headline {
+		grid-column: 2;
+		grid-row: 1;
 		padding: 32px 32px 0 0;
 		min-width: 0;
 		overflow: hidden;
 	}
 
 	.show-bio {
-		padding: 0 32px 0 0;
+		grid-column: 2;
+		grid-row: 2;
+		padding: 16px 32px 16px 0;
 		font-size: 14px;
 		line-height: 1.55;
 		color: var(--ink-dim);
@@ -397,6 +404,8 @@
 	}
 
 	.show-actions {
+		grid-column: 2;
+		grid-row: 3;
 		padding: 0 32px 32px 0;
 		display: flex;
 		gap: 12px;
@@ -413,7 +422,8 @@
 	.shows-list.is-dual .show-row {
 		display: grid;
 		grid-template-columns: minmax(0, 270px) minmax(0, 1fr);
-		gap: 20px;
+		grid-template-rows: auto 1fr auto;
+		gap: 0 20px;
 		height: var(--row-height);
 		align-items: stretch;
 	}
@@ -421,7 +431,7 @@
 		padding: 20px 20px 0 0;
 	}
 	.shows-list.is-dual .show-bio {
-		padding: 0 20px 0 0;
+		padding: 12px 20px 12px 0;
 		font-size: 13px;
 		display: -webkit-box;
 		-webkit-line-clamp: 6;
@@ -515,9 +525,9 @@
 			grid-template-columns: 1fr;
 		}
 		.shows-list.is-dual .show-row {
-			display: grid;
 			grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
-			gap: 32px;
+			grid-template-rows: auto 1fr auto;
+			gap: 0 32px;
 			height: 500px;
 		}
 		.shows-list.is-dual .show-bio {
@@ -575,16 +585,12 @@
 			min-height: auto;
 		}
 
-		/* SHOW-ROW becomes a 3-row vertical stack designed to fit iPhone height.
-		   Total budget on a ~700px usable viewport (after header + tabs ~200px):
-		   - Row 1 (poster + headline):  ~46dvh
-		   - Row 2 (bio):                ~22dvh (clamped)
-		   - Row 3 (actions):            ~12dvh
-		*/
+		/* SHOW-ROW becomes a 3-row vertical stack designed to fit iPhone height. */
 		.show-row {
 			display: flex;
 			flex-direction: column;
 			grid-template-columns: none;
+			grid-template-rows: none;
 			height: auto;
 			min-height: auto;
 			gap: 12px;
@@ -600,7 +606,17 @@
 		}
 
 		.show-left {
+			grid-column: auto;
+			grid-row: auto;
 			height: auto;
+			/* Default: no offset */
+			transform: translateY(0);
+		}
+
+		/* ── REQUESTED: offset May 22 + May 23 flyers down ~10px on mobile ── */
+		.show-row[data-date='22'] .show-left,
+		.show-row[data-date='23'] .show-left {
+			transform: translateY(10px);
 		}
 
 		.media-container {
@@ -613,6 +629,7 @@
 
 		.show-headline {
 			grid-column: auto;
+			grid-row: auto;
 			padding: 0;
 			display: flex;
 			flex-direction: column;
@@ -631,10 +648,18 @@
 		.show-sponsor {
 			font-size: 10px;
 		}
+
+		/* ── REQUESTED: artist name fits on ONE line on mobile ── */
 		.show-artist {
-			font-size: clamp(22px, 6.5vw, 30px);
+			font-size: clamp(18px, 5.6vw, 26px);
 			margin: 0 0 6px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			word-break: normal;
+			max-width: 100%;
 		}
+
 		.show-supporting {
 			font-size: 11px;
 			margin: 0;
@@ -643,6 +668,7 @@
 		/* Row 2 — bio (clamped so it can't push buttons off-screen) */
 		.show-bio {
 			grid-column: auto;
+			grid-row: auto;
 			padding: 0;
 			font-size: 13px;
 			line-height: 1.45;
@@ -659,19 +685,25 @@
 			display: none;
 		}
 
-		/* Row 3 — actions stacked, full-width, comfortable tap targets */
+		/* ── REQUESTED: Buy Tickets + Book A Table SIDE BY SIDE on mobile ── */
 		.show-actions {
 			grid-column: auto;
+			grid-row: auto;
 			padding: 0;
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
 			gap: 8px;
 			margin-top: 4px;
 		}
 		.show-actions .btn {
-			width: 100%;
-			padding: 12px 16px;
-			font-size: 14px;
+			flex: 1 1 0;
+			min-width: 0;
+			width: auto;
+			padding: 11px 10px;
+			font-size: 12px;
+			letter-spacing: 0.08em;
+			text-align: center;
+			white-space: nowrap;
 		}
 
 		/* Dual-event days: keep side-by-side but require manual horizontal scroll */
@@ -694,6 +726,7 @@
 			display: flex;
 			flex-direction: column;
 			grid-template-columns: none;
+			grid-template-rows: none;
 			flex: 0 0 88%;
 			scroll-snap-align: center;
 			height: auto;
@@ -720,7 +753,7 @@
 			overflow-y: auto;
 		}
 		.shows-list.is-dual .show-artist {
-			font-size: clamp(20px, 6vw, 28px);
+			font-size: clamp(16px, 5vw, 22px);
 		}
 		.shows-list.is-dual .show-venue-text {
 			font-size: 14px;

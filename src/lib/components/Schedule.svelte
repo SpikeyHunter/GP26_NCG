@@ -39,17 +39,30 @@
 		return found.join(' ');
 	}
 
-	// Mobile carousel — sync horizontal scroll with vertical page scroll
 	let carouselEl = $state<HTMLElement | null>(null);
 	let scheduleEl = $state<HTMLElement | null>(null);
 	let isInView = $state(false);
-	let isUserDragging = false;
-	let dragReleaseTimer: ReturnType<typeof setTimeout>;
+	let isMobile = $state(false);
 
 	onMount(() => {
 		const mq = window.matchMedia('(max-width: 768px)');
+		isMobile = mq.matches;
 
-		// Section enter/exit animation observer
+		const handleMqChange = (e: MediaQueryListEvent) => {
+			isMobile = e.matches;
+		};
+		mq.addEventListener('change', handleMqChange);
+
+		// On mobile: skip the in-view fade animations entirely and let the user
+		// freely swipe the horizontal carousel — no scroll-coupling, no observers.
+		if (mq.matches) {
+			isInView = true;
+			return () => {
+				mq.removeEventListener('change', handleMqChange);
+			};
+		}
+
+		// Desktop/tablet: keep the section enter animation
 		const sectionObserver = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
@@ -60,44 +73,20 @@
 		);
 		if (scheduleEl) sectionObserver.observe(scheduleEl);
 
-		function onPageScroll() {
-			if (!carouselEl || !scheduleEl || !mq.matches || isUserDragging) return;
-
-			const rect = scheduleEl.getBoundingClientRect();
-			const vh = window.innerHeight;
-			const total = rect.height + vh;
-			const traveled = vh - rect.top;
-			const progress = Math.max(0, Math.min(1, traveled / total));
-
-			const maxScroll = carouselEl.scrollWidth - carouselEl.clientWidth;
-			carouselEl.scrollLeft = progress * maxScroll;
-		}
-
-		function onCarouselTouch() {
-			isUserDragging = true;
-			clearTimeout(dragReleaseTimer);
-			dragReleaseTimer = setTimeout(() => (isUserDragging = false), 1500);
-		}
-
-		window.addEventListener('scroll', onPageScroll, { passive: true });
-		carouselEl?.addEventListener('touchstart', onCarouselTouch, { passive: true });
-		carouselEl?.addEventListener('touchmove', onCarouselTouch, { passive: true });
-		carouselEl?.addEventListener('wheel', onCarouselTouch, { passive: true });
-
-		onPageScroll();
-
 		return () => {
-			window.removeEventListener('scroll', onPageScroll);
-			carouselEl?.removeEventListener('touchstart', onCarouselTouch);
-			carouselEl?.removeEventListener('touchmove', onCarouselTouch);
-			carouselEl?.removeEventListener('wheel', onCarouselTouch);
 			sectionObserver.disconnect();
-			clearTimeout(dragReleaseTimer);
+			mq.removeEventListener('change', handleMqChange);
 		};
 	});
 </script>
 
-<section id="schedule" class="schedule" class:in-view={isInView} bind:this={scheduleEl}>
+<section
+	id="schedule"
+	class="schedule"
+	class:in-view={isInView}
+	class:is-mobile={isMobile}
+	bind:this={scheduleEl}
+>
 	<div class="container">
 		<div class="section-header schedule-header">
 			<span class="section-eyebrow schedule-eyebrow"
@@ -168,7 +157,7 @@
 	.section-header {
 		margin-bottom: 24px;
 
-		/* Section enter animation */
+		/* Section enter animation (desktop only — mobile overrides below) */
 		opacity: 0;
 		transform: translateY(20px);
 		transition:
@@ -205,7 +194,7 @@
 		grid-template-rows: auto 1fr 1fr;
 		gap: 16px;
 
-		/* Per-day enter animation, staggered by day index */
+		/* Per-day enter animation, staggered by day index (desktop only) */
 		opacity: 0;
 		transform: translateY(30px);
 		transition:
@@ -371,16 +360,28 @@
 	}
 
 	/* 💻 TABLET */
-	@media (max-width: 1024px) {
+	@media (max-width: 1024px) and (min-width: 769px) {
 		.schedule-grid {
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 
-	/* 📱 MOBILE — horizontal scroll-snap carousel */
+	/* ─────────────────────────────────────────────────────────
+	   📱 MOBILE — Free horizontal swipe carousel, NO entrance animations
+	   ───────────────────────────────────────────────────────── */
 	@media (max-width: 768px) {
 		.schedule {
 			padding: 32px 0 48px;
+		}
+
+		/* Kill all entrance/stagger animations on mobile */
+		.schedule .section-header,
+		.schedule .schedule-day,
+		.schedule .schedule-times li {
+			opacity: 1;
+			transform: none;
+			animation: none;
+			transition: none;
 		}
 
 		.schedule-grid {
@@ -397,6 +398,9 @@
 			margin: 0 -16px;
 			padding-left: 16px;
 			padding-right: 16px;
+			/* Hint to the browser this is a horizontal swipe surface */
+			touch-action: pan-x pan-y;
+			overscroll-behavior-x: contain;
 		}
 		.schedule-grid::-webkit-scrollbar {
 			display: none;
