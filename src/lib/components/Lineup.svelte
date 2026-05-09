@@ -590,12 +590,12 @@
 		.show-row[data-date='23'] .show-poster,
 		.show-row[data-date='23'] .show-video {
 			object-position: center top;
-            padding-bottom: 10px
+			padding-bottom: 10px;
 		}
 		.show-row[data-date='22'] .show-bio,
 		.show-row[data-date='23'] .show-bio {
-			padding-top: 20px;
-            text-align:justify;
+			padding-top: 20px !important;
+			text-align: justify;
 		}
 
 		/* SHOW-ROW becomes a 3-row vertical stack designed to fit iPhone height. */
@@ -606,7 +606,7 @@
 			grid-template-rows: none;
 			height: auto;
 			min-height: auto;
-			gap: 12px;
+			gap: 20px;
 			padding: 12px;
 		}
 
