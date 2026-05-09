@@ -590,6 +590,7 @@
 		.show-row[data-date='23'] .show-poster,
 		.show-row[data-date='23'] .show-video {
 			object-position: center top;
+            padding-bottom: 10px
 		}
 		.show-row[data-date='22'] .show-bio,
 		.show-row[data-date='23'] .show-bio {
