@@ -37,7 +37,7 @@
 
 <style>
 	.footer {
-		padding: 80px 0 32px;
+		padding: 30px 0 32px;
 		background: #050403;
 		border-top: 1px solid var(--line);
 	}
@@ -118,7 +118,7 @@
 	.footer-bottom {
 		display: flex;
 		justify-content: space-between;
-		padding-top: 32px;
+		padding-top: 20px;
 		font-size: 11px;
 		font-weight: 700;
 		letter-spacing: 0.2em;
