@@ -591,6 +591,10 @@
 		.show-row[data-date='23'] .show-video {
 			object-position: center top;
 		}
+		.show-row[data-date='22'] .show-bio,
+		.show-row[data-date='23'] .show-bio {
+			padding-top: 12px;
+		}
 
 		/* SHOW-ROW becomes a 3-row vertical stack designed to fit iPhone height. */
 		.show-row {
@@ -659,6 +663,14 @@
 			text-overflow: ellipsis;
 			word-break: normal;
 			max-width: 100%;
+		}
+
+		.show-row[data-date='21'] .show-artist,
+		.show-row[data-date='24'] .show-artist {
+			white-space: normal;
+			overflow: visible;
+			text-overflow: clip;
+			line-height: 1.05;
 		}
 
 		.show-supporting {
