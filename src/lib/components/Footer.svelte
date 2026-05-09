@@ -7,7 +7,11 @@
 		<div class="footer-grid">
 			<div>
 				<a href="#top" class="nav-logo">GP<span class="nav-logo-2">26</span></a>
-				<p class="footer-tag">RACE WEEK · MAY 21–24, 2026</p>
+				<p class="footer-tag">
+					<span class="tag-part">RACE WEEK</span>
+					<span class="tag-sep" aria-hidden="true">·</span>
+					<span class="tag-part">MAY 21–24, 2026</span>
+				</p>
 			</div>
 			<div>
 				<p class="footer-label">VENUE</p>
@@ -75,6 +79,23 @@
 		color: var(--ink-dim);
 		margin: 0;
 	}
+	.tag-part {
+		display: inline;
+		white-space: nowrap;
+	}
+	.tag-sep {
+		display: inline;
+		margin: 0 0.4em;
+	}
+	@media (max-width: 768px) {
+		.tag-sep {
+			display: none;
+		}
+		.tag-part {
+			display: block;
+		}
+	}
+
 	.footer-label {
 		font-size: 10px;
 		font-weight: 700;
