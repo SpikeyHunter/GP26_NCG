@@ -46,7 +46,7 @@
 		width: 100%;
 		aspect-ratio: 21/9;
 		object-fit: cover;
-		border: 1px solid var(--line);
+
 	}
 	.dish-grid {
 		display: grid;
@@ -57,7 +57,7 @@
 		width: 100%;
 		aspect-ratio: 1/1;
 		object-fit: cover;
-		border: 1px solid var(--line);
+		
 	}
 	@media (max-width: 768px) {
 		.restaurant {
