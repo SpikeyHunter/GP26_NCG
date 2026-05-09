@@ -20,12 +20,12 @@
 @font-face { font-family: 'Pragmatica'; src: url('/fonts/Pragmatica Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
 
 :root {
-	--bg: #0a0908;
-	--bg-2: #14110f;
+	--bg: #000000;
+	--bg-2: #0a0a0ad3;
 	--ink: #f5f1ea;
 	--ink-dim: #a8a39a;
 	--ink-faint: #6b665e;
-	--line: #2a2520;
+	--line: #272624;
 	--champagne: #e8d9b7;
 	--gold: #C2A666;
     --gold2: #9D7D34;

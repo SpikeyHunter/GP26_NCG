@@ -12,14 +12,14 @@
 
 <nav class="nav">
 	<div class="nav-inner">
-		<a href="#top" class="nav-logo" onclick={closeMenu}>GP26</a>
+		<a href="#top" class="nav-logo" onclick={closeMenu}>GP<span class="nav-logo-2">26</span></a>
 		
 		<div class="nav-links" class:open={menuOpen}>
 			<a href="#lineup" onclick={closeMenu}>LINEUP</a>
 			<a href="#schedule" onclick={closeMenu}>SCHEDULE</a>
 			<a href="#newcitygas" onclick={closeMenu}>NEW CITY GAS</a>
 			<a href="#bazart" onclick={closeMenu}>BAZART</a>
-			<a href="#restaurant" onclick={closeMenu}>RESTAURANT</a>
+			<a href="#restaurant" onclick={closeMenu}>DINER</a>
 			<a href="#nft" onclick={closeMenu}>NFT GALLERY</a>
 		</div>
 		
@@ -34,8 +34,9 @@
 
 <style>
 	.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; backdrop-filter: blur(20px) saturate(140%); background: rgba(10, 9, 8, 0.85); border-bottom: 1px solid var(--line); }
-	.nav-inner { max-width: 1280px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-	.nav-logo { font-family: var(--font-gp26); font-size: 32px; color: var(--ink); text-decoration: none; flex-shrink: 0; }
+	.nav-inner { max-width: 1280px; margin: 0 auto; padding: 0px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+	.nav-logo { font-family: var(--font-gp26); font-size: 48px; color: var(--ink-dim); text-decoration: none; flex-shrink: 0; }
+    .nav-logo-2 { color: var(--gold2); }
 	
 	.nav-links { display: flex; gap: 28px; align-items: center; }
 	.nav-links a { font-family: var(--font-body); color: var(--ink-dim); text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; transition: color 0.2s; }

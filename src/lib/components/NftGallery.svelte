@@ -5,8 +5,10 @@
 <section id="nft" class="nft-gallery">
 	<div class="container">
 		<div class="section-header">
-			<span class="section-eyebrow">→ DIGITAL ART</span>
-			<h2 class="section-title">NFT GALLERY</h2>
+			<span class="section-eyebrow schedule-eyebrow"
+				><span style="font-family: Arial, sans-serif;">&rarr;</span> DIGITAL ART</span
+			>
+			<h2 class="section-title schedule-title">NFT GALLERY<span class="subtitle">by Ox Society</span></h2>
 		</div>
 		<div class="nft-grid">
 			<img src={nft.piece_1} alt="NFT Piece 1" />
@@ -27,4 +29,19 @@
 		.nft-gallery { padding: 48px 0; }
 		.section-header { margin-bottom: 32px; }
 	}
+    .section-header { margin-bottom: 20px; }
+    .schedule-eyebrow {
+		font-size: 16px;
+		color: var(--ink);
+		margin-bottom: 4px;
+		display: inline-block;
+	}
+	.schedule-title {
+		font-size: clamp(28px, 4vw, 56px);
+		margin: 0;
+		color: var(--ink-dim);
+	}
+    .subtitle {
+        font-size: clamp(10px, 4vw, 20px);
+    }
 </style>

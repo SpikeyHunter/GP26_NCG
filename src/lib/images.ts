@@ -11,15 +11,15 @@ export const hero = {
 export const lineup = {
 	flyer_may21_nico:       'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Nico4.jpg',
 	flyer_may21_nico_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Nico_Video3.webm',
-	flyer_may22_kaytranada: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Kay2.jpg',
+	flyer_may22_kaytranada: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Kay3.jpg',
     flyer_may22_kaytranada_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Kay_Video.webm',
 	flyer_may22_pauza:      'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Pauza2.jpg',
     flyer_may22_pauz_video:  'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Pauza_Video.webm',
-	flyer_may23_jameshype:  'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/James2.jpg',
+	flyer_may23_jameshype:  'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/James3.jpg',
 	flyer_may23_jameshype_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/James_Video.webm',
-	flyer_may23_maesic:     'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Maesic2.jpg',
+	flyer_may23_maesic:     'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Maesic3.jpg',
 	flyer_may23_maesic_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Maesic_Video.webm',
-	flyer_may24_timmy:      'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Timmy1.jpg',
+	flyer_may24_timmy:      'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Timmy2.jpg',
 	flyer_may24_timmy_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Timmy_Video.webm',
 };
 
@@ -32,7 +32,7 @@ export const setup = {
 
 // ─── NEW CITY GAS section ────────────────────────────────────────────
 export const newCityGas = {
-	venue_main: 'https://placehold.co/1200x900/0a0a0a/silver?text=NEW+CITY+GAS'
+	venue_main: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/New%20City%20Gas/Photo1.JPG'
 };
 
 // ─── BAZART section ──────────────────────────────────────────────────

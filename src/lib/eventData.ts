@@ -34,7 +34,7 @@ export const eventDays: EventDay[] = [
 		date: '21',
 		dayName: 'JEUDI',
 		dayNameEn: 'THURSDAY',
-		month: 'MAI',
+		month: 'MAY',
 		tagline: 'ALL GAS NO BRAKES',
 		shows: [
 			{
@@ -47,13 +47,15 @@ export const eventDays: EventDay[] = [
 				aboutArtist:
 					'French producer and DJ Nico De Andrea is known for blending emotive pop, afro house, and techno into melodic, energetic sets. With over 100 million Spotify streams and performances in more than 40 countries, he has earned support from artists like Black Coffee, Solomun, and Diplo while playing iconic venues including Pacha Ibiza and Ministry of Sound.',
 				setTimes: [
-					{ time: '22:00', act: 'PASKAL DAZE' },
-					{ time: '23:30', act: 'NICO DE ANDREA B2B MAXI MERAKI B2B LUCH' },
-					{ time: '03:00', act: 'CLOSE' }
+					{ time: '10:00PM', act: 'DOORS' },
+                    { time: '10:00PM', act: 'PASKAL DAZE' },
+					{ time: '12:00AM', act: 'NICO DE ANDREA B2B MAXI MERAKI B2B LUCH' },
+					{ time: '03:00AM', act: 'CURFEW' }
 				],
-				ticketUrl: '#tickets',
-				reservationUrl: '#tickets',
-				accentColor: '#DEDEDE'
+				ticketUrl: 'https://link.produkt.ca/26-gp-nml',
+				reservationUrl: 'https://newcitygas.com/event/nico-de-andrea-b2b-maxi-meraki-b2b-luch-186264/#reservations',
+				accentColor: '#DEDEDE',
+				sponsor: 'PRODUKT present'
 			}
 		]
 	},
@@ -61,28 +63,30 @@ export const eventDays: EventDay[] = [
 		date: '22',
 		dayName: 'VENDREDI',
 		dayNameEn: 'FRIDAY',
-		month: 'MAI',
+		month: 'MAY',
 		tagline: 'ALL GAS NO BRAKES',
 		shows: [
 			{
 				artist: 'KAYTRANADA',
-				supporting: ['DJ SET', 'LOU PHELPS', 'DEL ARTE'],
+				supporting: ['LOU PHELPS', 'DEL ARTE'],
 				venue: 'NEW CITY GAS',
 				posterUrl: lineup.flyer_may22_kaytranada,
 				posterVideoUrl: lineup.flyer_may22_kaytranada_video, // <-- ADDED
 				setupImageUrl: setup.main_room,
 				aboutArtist:
-					'Grammy-winning Montreal hometown hero. Kaytranada returns to New City Gas for an exclusive DJ set during F1 weekend, joined by Lou Phelps and Del Arte. A genre-defying night of soulful house, hip-hop, and beats that built a global movement.',
+					'Kaytranada is a Montreal-born producer and DJ known for his signature blend of house, hip-hop, R&B, and electronic music. A Grammy Award-winning artist, he has collaborated with names like Anderson .Paak, H.E.R., and The Weeknd while performing at major festivals and iconic venues worldwide.',
 				setTimes: [
-					{ time: '22:00', act: 'DEL ARTE' },
-					{ time: '23:30', act: 'LOU PHELPS' },
-					{ time: '01:00', act: 'KAYTRANADA (DJ SET)' },
-					{ time: '03:00', act: 'CLOSE' }
+					{ time: '10:00PM', act: 'DOORS' },
+                    { time: '10:00PM', act: 'DEL ARTE' },
+					{ time: '11:30PM', act: 'LOU PHELPS' },
+					{ time: '12:45AM', act: 'KAYTRANADA (DJ SET)' },
+					{ time: '02:30AM', act: 'TBD' },
+					{ time: '03:00AM', act: 'CURFEW' }
 				],
-				ticketUrl: '#tickets',
-				reservationUrl: '#tickets',
+				ticketUrl: 'https://link.produkt.ca/26-gp-kay',
+				reservationUrl: 'https://newcitygas.com/event/kaytranada-dj-set-lou-phelps-181527/#reservations',
 				accentColor: '#C2A666',
-				sponsor: 'PATRÓN TEQUILA'
+				sponsor: 'PATRON TEQUILA & PRODUKT present'
 			},
 			{
 				artist: 'PAUZA',
@@ -92,17 +96,18 @@ export const eventDays: EventDay[] = [
 				posterVideoUrl: lineup.flyer_may22_pauz_video, // <-- ADDED
 				setupImageUrl: setup.bazart_setup,
 				aboutArtist:
-					"Italian duo PAUZA bring their signature hypnotic, organic house sound to Bazart. With releases on Solomun's Diynamic and Crosstown Rebels, sisters Giulia and Alice deliver an intimate, sun-drenched journey perfect for the elevated Bazart experience.",
+					"PAUZA (Zahira Sánchez and Paula Fernández) are the first first female electronic duo from Havana, Cuba. The duo has re-interpreted the cultural current of house music by adding latin rhythms and Cuban folklore.",
 				setTimes: [
-					{ time: '22:00', act: 'EVIATAR' },
-					{ time: '23:30', act: 'LAURA SCAVO' },
-					{ time: '01:00', act: 'PAUZA' },
-					{ time: '03:00', act: 'CLOSE' }
+					{ time: '10:00PM', act: 'DOORS' },
+                    { time: '10:00PM', act: 'EVIATAR' },
+					{ time: '11:30PM', act: 'LAURA SCAVO' },
+					{ time: '01:00AM', act: 'PAUZA' },
+					{ time: '03:00AM', act: 'CURFEW' }
 				],
-				ticketUrl: '#tickets',
-				reservationUrl: '#tickets',
+				ticketUrl: 'https://link.produkt.ca/26-gp-pa',
+				reservationUrl: 'https://newcitygas.com/event/pauza-laura-scavo-181824/#reservations',
 				accentColor: '#E8D9B7',
-				sponsor: 'ARMAND DE BRIGNAC'
+				sponsor: 'ARMAND DE BRIGNAC, BAZART & PRODUKT present'
 			}
 		]
 	},
@@ -110,7 +115,7 @@ export const eventDays: EventDay[] = [
 		date: '23',
 		dayName: 'SAMEDI',
 		dayNameEn: 'SATURDAY',
-		month: 'MAI',
+		month: 'MAY',
 		tagline: 'ALL GAS NO BRAKES',
 		shows: [
 			{
@@ -121,17 +126,18 @@ export const eventDays: EventDay[] = [
 				posterVideoUrl: lineup.flyer_may23_jameshype_video, // <-- ADDED
 				setupImageUrl: setup.main_room,
 				aboutArtist:
-					'The man behind "Ferrari" and one of the most explosive live acts in dance music. James Hype brings his high-energy tech-house mastery to Saturday night — expect rapid-fire mixing, viral edits, and a peak-time experience built for the GP weekend.',
+					'UK DJ and producer James Hype is known for his explosive live mixing skills and high-energy house productions that have become staples on dance floors worldwide. With hundreds of millions of streams, chart-topping releases like “Ferrari,” and performances at major festivals including Tomorrowland, EDC, and Lollapalooza, James Hype has established himself as one of the leading names in modern electronic music.',
 				setTimes: [
-					{ time: '22:00', act: 'STEF AGOSTINO' },
-					{ time: '23:30', act: 'DANSYN' },
-					{ time: '01:00', act: 'JAMES HYPE' },
-					{ time: '03:00', act: 'CLOSE' }
+					{ time: '10:00PM', act: 'DOORS' },
+                    { time: '10:00PM', act: 'STEF AGOSTINO' },
+					{ time: '11:30PM', act: 'DANSYN' },
+					{ time: '01:00AM', act: 'JAMES HYPE' },
+					{ time: '03:00AN', act: 'CURFEW' }
 				],
-				ticketUrl: '#tickets',
-				reservationUrl: '#tickets',
+				ticketUrl: 'https://link.produkt.ca/26-gp-jh',
+				reservationUrl: 'https://newcitygas.com/event/james-hype-dansyn-181526/#reservations',
 				accentColor: '#DF2A44',
-				sponsor: 'ORACLE RED BULL RACING'
+				sponsor: 'RED BULL RACING & PRODUKT present'
 			},
 			{
 				artist: 'MAESIC',
@@ -141,17 +147,18 @@ export const eventDays: EventDay[] = [
 				posterVideoUrl: lineup.flyer_may23_maesic_video, // <-- ADDED
 				setupImageUrl: setup.bazart_setup,
 				aboutArtist:
-					'Croatian producer Maesic crafts emotive, melodic house with cinematic depth. With co-signs from Solomun and a steady stream of Diynamic releases, his Bazart set is built for the long, atmospheric peak of Saturday night.',
+					'Maesic is known for blending tech house, afro house, melodic techno, and EDM into a forward-thinking sound inspired by global club culture. Supported by artists like Diplo, Fisher, and Malaa, Maesic has collaborated with names including Bob Sinclar and Hugel while rapidly emerging as one of dance music’s most exciting new talents.',
 				setTimes: [
-					{ time: '22:00', act: 'MALENA' },
-					{ time: '23:30', act: 'SIMON FITCH' },
-					{ time: '01:00', act: 'MAESIC' },
-					{ time: '03:00', act: 'CLOSE' }
+					{ time: '10:00PM', act: 'DOORS' },
+                    { time: '10:00PM', act: 'MALENA' },
+					{ time: '11:30PM', act: 'SIMON FITCH' },
+					{ time: '01:00AM', act: 'MAESIC' },
+					{ time: '03:00AM', act: 'CLOSE' }
 				],
-				ticketUrl: '#tickets',
-				reservationUrl: '#tickets',
+				ticketUrl: 'https://link.produkt.ca/26-gp-ma',
+				reservationUrl: 'https://newcitygas.com/event/maesic-simon-fitch-186084/#reservations',
 				accentColor: '#E8D9B7',
-				sponsor: 'ARMAND DE BRIGNAC'
+				sponsor: 'ARMAND DE BRIGNAC, BAZART & PRODUKT present'
 			}
 		]
 	},
@@ -159,7 +166,7 @@ export const eventDays: EventDay[] = [
 		date: '24',
 		dayName: 'DIMANCHE',
 		dayNameEn: 'SUNDAY',
-		month: 'MAI',
+		month: 'MAY',
 		tagline: 'ALL GAS NO BRAKES',
 		shows: [
 			{
@@ -170,17 +177,19 @@ export const eventDays: EventDay[] = [
 				posterVideoUrl: lineup.flyer_may24_timmy_video, // <-- ADDED
 				setupImageUrl: setup.main_room,
 				aboutArtist:
-					'The trumpet-wielding global headliner closing out GP26. Timmy Trumpet brings festival-level energy with anthems played by every major DJ on the planet — supported by TWINSICK and MVNGO. The race-day finale.',
+					'Australian DJ, producer, and live instrumentalist Timmy Trumpet is known for his explosive performances that combine high-energy electronic music with live trumpet playing. A multi-platinum selling artist and one of the top names in global dance music, Timmy Trumpet gained worldwide recognition with his hit “Freaks,” which has amassed over half a billion streams and topped charts across multiple countries.',
 				setTimes: [
-					{ time: '22:00', act: 'MVNGO' },
-					{ time: '23:30', act: 'TWINSICK' },
-					{ time: '01:00', act: 'TIMMY TRUMPET' },
-					{ time: '03:00', act: 'CLOSE' }
+					{ time: '10:00PM', act: 'DOORS' },
+                    { time: '10:00PM', act: 'MVNGO' },
+					{ time: '11:15PM', act: 'TWINSICK' },
+					{ time: '12:45AM', act: 'TIMMY TRUMPET' },
+					{ time: '02:00AM', act: 'TBD' },
+					{ time: '03:00AM', act: 'CURFEW' }
 				],
-				ticketUrl: '#tickets',
-				reservationUrl: '#tickets',
+				ticketUrl: 'https://link.produkt.ca/26-gp-tt',
+				reservationUrl: 'https://newcitygas.com/event/timmy-trumpet-twinsick-185229/#reservations',
 				accentColor: '#44AA41',
-				sponsor: 'HEINEKEN'
+				sponsor: 'HEINEKEN & PRODUKT present'
 			}
 		]
 	}
