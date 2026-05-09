@@ -6,6 +6,7 @@
 	let spacers = $state<HTMLElement[]>([]);
 	let isProgrammaticScroll = false;
 	let scrollTimeout: ReturnType<typeof setTimeout>;
+	let isMobile = $state(false);
 
 	// Custom Svelte action to alternate smoothly between image and video
 	function mediaAlternator(node: HTMLElement) {
@@ -51,8 +52,23 @@
 		};
 	}
 
-	// Butter-smooth native scroll observer
+	// Butter-smooth native scroll observer (DESKTOP ONLY)
 	onMount(() => {
+		const mq = window.matchMedia('(max-width: 900px)');
+		isMobile = mq.matches;
+
+		const handleMqChange = (e: MediaQueryListEvent) => {
+			isMobile = e.matches;
+		};
+		mq.addEventListener('change', handleMqChange);
+
+		// Don't set up scroll observer on mobile — scroll-blocking is disabled there
+		if (mq.matches) {
+			return () => {
+				mq.removeEventListener('change', handleMqChange);
+			};
+		}
+
 		const observer = new IntersectionObserver(
 			(entries) => {
 				if (isProgrammaticScroll) return;
@@ -77,11 +93,16 @@
 		return () => {
 			observer.disconnect();
 			clearTimeout(scrollTimeout);
+			mq.removeEventListener('change', handleMqChange);
 		};
 	});
 
 	function selectDay(index: number) {
 		activeDay = index;
+
+		// On mobile, just switch tabs — no scroll hijacking
+		if (isMobile) return;
+
 		isProgrammaticScroll = true;
 		clearTimeout(scrollTimeout);
 
@@ -126,47 +147,52 @@
 						<div class="shows-list" class:is-dual={day.shows.length > 1}>
 							{#each day.shows as show}
 								<div class="show-row" style="--show-accent: {show.accentColor}">
-									<div class="show-left">
-										{#if show.posterVideoUrl}
-											<div class="media-container" use:mediaAlternator>
-												<img src={show.posterUrl} alt={show.artist} class="show-poster" />
-												<video
-													src={show.posterVideoUrl}
-													muted
-													playsinline
-													preload="auto"
-													class="show-video"
-												></video>
-											</div>
-										{:else}
-											<div class="media-container">
-												<img src={show.posterUrl} alt={show.artist} class="show-poster" />
-											</div>
-										{/if}
-									</div>
-
-									<div class="show-right">
-										<div class="show-meta">
-											<span class="show-venue-text">{show.venue}</span>
-											{#if show.sponsor}
-												<span class="show-sponsor">{show.sponsor}</span>
+									<!-- ROW 1 (mobile): flyer left + venue/sponsor/headliner/supporting right -->
+									<div class="show-top">
+										<div class="show-left">
+											{#if show.posterVideoUrl}
+												<div class="media-container" use:mediaAlternator>
+													<img src={show.posterUrl} alt={show.artist} class="show-poster" />
+													<video
+														src={show.posterVideoUrl}
+														muted
+														playsinline
+														preload="auto"
+														class="show-video"
+													></video>
+												</div>
+											{:else}
+												<div class="media-container">
+													<img src={show.posterUrl} alt={show.artist} class="show-poster" />
+												</div>
 											{/if}
 										</div>
 
-										<h3 class="show-artist">{show.artist}</h3>
+										<div class="show-headline">
+											<div class="show-meta">
+												<span class="show-venue-text">{show.venue}</span>
+												{#if show.sponsor}
+													<span class="show-sponsor">{show.sponsor}</span>
+												{/if}
+											</div>
 
-										{#if show.supporting?.length}
-											<p class="show-supporting">{show.supporting.join(' · ')}</p>
-										{/if}
+											<h3 class="show-artist">{show.artist}</h3>
 
-										<div class="show-bio">
-											<p>{show.aboutArtist}</p>
+											{#if show.supporting?.length}
+												<p class="show-supporting">{show.supporting.join(' · ')}</p>
+											{/if}
 										</div>
+									</div>
 
-										<div class="show-actions">
-											<a href={show.ticketUrl} class="btn btn-primary">BUY TICKETS</a>
-											<a href={show.reservationUrl} class="btn btn-ghost">RESERVE A TABLE</a>
-										</div>
+									<!-- ROW 2 (mobile): description -->
+									<div class="show-bio">
+										<p>{show.aboutArtist}</p>
+									</div>
+
+									<!-- ROW 3 (mobile): actions -->
+									<div class="show-actions">
+										<a href={show.ticketUrl} class="btn btn-primary">BUY TICKETS</a>
+										<a href={show.reservationUrl} class="btn btn-ghost">RESERVE A TABLE</a>
 									</div>
 								</div>
 							{/each}
@@ -178,7 +204,7 @@
 	</div>
 
 	<div class="scroll-track">
-		{#each eventDays as day, i}
+		{#each eventDays as _day, i}
 			<div class="scroll-spacer" data-index={i} bind:this={spacers[i]}></div>
 		{/each}
 	</div>
@@ -186,7 +212,7 @@
 
 <style>
 	/* ─────────────────────────────────────────────────────────
-	   SCROLL BLOCKER LOGIC
+	   SCROLL BLOCKER LOGIC (DESKTOP)
 	   ───────────────────────────────────────────────────────── */
 	.lineup-section {
 		position: relative;
@@ -299,11 +325,11 @@
 	}
 
 	/* ─────────────────────────────────────────────────────────
-	   SHOWS — FIXED HEIGHTS so poster width can't blow up the text column
+	   SHOWS — Desktop layout (poster left, info right)
 	   ───────────────────────────────────────────────────────── */
 	.shows-stage {
 		--row-height: 480px;
-		--row-height-single: 600px; /* taller for single */
+		--row-height-single: 600px;
 		min-height: var(--row-height);
 	}
 
@@ -324,7 +350,7 @@
 		}
 	}
 
-	/* Single Event Row — poster LEFT (3:4), text RIGHT */
+	/* DESKTOP: show-row is a 2-col grid (poster | info) */
 	.show-row {
 		display: grid;
 		grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
@@ -333,6 +359,12 @@
 		height: var(--row-height);
 		align-items: stretch;
 	}
+
+	/* On desktop the .show-top wrapper is invisible — its children spill into the grid */
+	.show-top {
+		display: contents;
+	}
+
 	.show-left {
 		position: relative;
 		height: 100%;
@@ -341,7 +373,38 @@
 		min-width: 0;
 	}
 
-	/* Dual Events — TWO columns side-by-side, each with poster LEFT + text RIGHT */
+	/* Headline + bio + actions stacked in the right column on desktop */
+	.show-headline,
+	.show-bio,
+	.show-actions {
+		grid-column: 2;
+	}
+
+	.show-headline {
+		padding: 32px 32px 0 0;
+		min-width: 0;
+		overflow: hidden;
+	}
+
+	.show-bio {
+		padding: 0 32px 0 0;
+		font-size: 14px;
+		line-height: 1.55;
+		color: var(--ink-dim);
+		text-align: justify;
+		min-width: 0;
+		overflow: hidden;
+	}
+
+	.show-actions {
+		padding: 0 32px 32px 0;
+		display: flex;
+		gap: 12px;
+		flex-wrap: wrap;
+		align-self: end;
+	}
+
+	/* Dual Events — TWO columns side-by-side */
 	.shows-list.is-dual {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -354,6 +417,31 @@
 		height: var(--row-height);
 		align-items: stretch;
 	}
+	.shows-list.is-dual .show-headline {
+		padding: 20px 20px 0 0;
+	}
+	.shows-list.is-dual .show-bio {
+		padding: 0 20px 0 0;
+		font-size: 13px;
+		display: -webkit-box;
+		-webkit-line-clamp: 6;
+		line-clamp: 6;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.shows-list.is-dual .show-actions {
+		padding: 0 20px 20px 0;
+	}
+	.shows-list.is-dual .show-artist {
+		font-size: clamp(22px, 2.2vw, 32px);
+		margin-bottom: 6px;
+	}
+	.shows-list.is-dual .show-venue-text {
+		font-size: 15px;
+	}
+	.shows-list.is-dual .show-sponsor {
+		font-size: 10px;
+	}
 	.shows-list.is-dual .show-left {
 		height: 100%;
 		width: 100%;
@@ -361,7 +449,7 @@
 		min-width: 0;
 	}
 
-	/* Media — fills its container, ratio comes from the cell shape */
+	/* Media — fills its container */
 	.media-container {
 		position: relative;
 		width: 100%;
@@ -382,41 +470,6 @@
 		transform: translate(-50%, -50%);
 	}
 
-	/* Info Block */
-	.show-right {
-		padding: 32px 32px 32px 0;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		min-width: 0; /* CRITICAL — allows grid item to shrink instead of overflow */
-		overflow: hidden;
-	}
-
-	.shows-list.is-dual .show-right {
-		padding: 20px 20px 20px 0;
-		justify-content: flex-start;
-		overflow: hidden;
-	}
-	.shows-list.is-dual .show-artist {
-		font-size: clamp(22px, 2.2vw, 32px);
-		margin-bottom: 6px;
-	}
-	.shows-list.is-dual .show-bio {
-		font-size: 13px;
-		margin-bottom: 16px;
-		display: -webkit-box;
-		-webkit-line-clamp: 6;
-		line-clamp: 6;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-	}
-	.shows-list.is-dual .show-venue-text {
-		font-size: 15px;
-	}
-	.shows-list.is-dual .show-sponsor {
-		font-size: 10px;
-	}
-
 	/* Text Styles */
 	.show-meta {
 		display: flex;
@@ -431,7 +484,7 @@
 		font-weight: 800;
 		color: var(--show-accent);
 		line-height: 1.1;
-        text-align: justify;
+		text-align: justify;
 	}
 	.show-sponsor {
 		font-size: 11px;
@@ -455,21 +508,9 @@
 		margin: 0 0 16px;
 		letter-spacing: 0.1em;
 	}
-	.show-bio {
-		font-size: 14px;
-		line-height: 1.55;
-		color: var(--ink-dim);
-		margin-bottom: 20px;
-		text-align: justify; /* No more justify — was creating word-island spacing */
-	}
-	.show-actions {
-		display: flex;
-		gap: 12px;
-		flex-wrap: wrap;
-	}
 
 	/* 📱 TABLET */
-	@media (max-width: 1200px) {
+	@media (max-width: 1200px) and (min-width: 901px) {
 		.shows-list.is-dual {
 			grid-template-columns: 1fr;
 		}
@@ -485,14 +526,27 @@
 			display: block;
 			overflow: visible;
 		}
-		.shows-list.is-dual .show-right {
-			padding: 32px 32px 32px 0;
-			justify-content: center;
-		}
 	}
 
-	/* 📱 MOBILE */
+	/* ─────────────────────────────────────────────────────────
+	   📱 MOBILE — Disable scroll blocking, 3-row stack, fit iPhone screen
+	   ───────────────────────────────────────────────────────── */
 	@media (max-width: 900px) {
+		/* Kill scroll hijacking */
+		.lineup-section {
+			height: auto;
+		}
+		.lineup-sticky {
+			position: static;
+			height: auto;
+			overflow-y: visible;
+			padding: 24px 0 32px;
+		}
+		.scroll-track {
+			display: none;
+		}
+
+		/* Keep 4 dates visible — tighter padding */
 		.day-tabs {
 			grid-template-columns: repeat(4, 1fr);
 			margin-bottom: 16px;
@@ -501,45 +555,135 @@
 			padding: 8px 4px;
 			align-items: center;
 			text-align: center;
-			border-bottom: none;
-			border-right: 1px solid var(--line);
-		}
-		.day-tab:nth-child(2) {
-			border-right: 1px solid var(--line);
 		}
 		.tab-day,
 		.tab-month {
 			font-size: 8px;
 		}
 		.tab-date {
-			font-size: 20px;
+			font-size: 22px;
 		}
+
 		.lineup-header {
 			margin-bottom: 12px;
+		}
+		.lineup-title {
+			font-size: clamp(22px, 6vw, 32px);
 		}
 
 		.shows-stage {
 			min-height: auto;
 		}
 
+		/* SHOW-ROW becomes a 3-row vertical stack designed to fit iPhone height.
+		   Total budget on a ~700px usable viewport (after header + tabs ~200px):
+		   - Row 1 (poster + headline):  ~46dvh
+		   - Row 2 (bio):                ~22dvh (clamped)
+		   - Row 3 (actions):            ~12dvh
+		*/
 		.show-row {
-			grid-template-columns: 1fr;
+			display: flex;
+			flex-direction: column;
+			grid-template-columns: none;
 			height: auto;
 			min-height: auto;
-			gap: 0;
+			gap: 12px;
+			padding: 12px;
 		}
+
+		/* Row 1 — flyer + headline side-by-side */
+		.show-top {
+			display: grid;
+			grid-template-columns: 38% 1fr;
+			gap: 12px;
+			align-items: stretch;
+		}
+
 		.show-left {
 			height: auto;
 		}
 
-		/* Mobile dual events as scroll-snap carousel */
+		.media-container {
+			aspect-ratio: 3 / 4;
+			height: auto;
+			width: 100%;
+			max-height: 42dvh;
+			border: 1px solid var(--line);
+		}
+
+		.show-headline {
+			grid-column: auto;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			min-width: 0;
+			overflow: hidden;
+		}
+
+		.show-meta {
+			margin-bottom: 8px;
+			gap: 2px;
+		}
+		.show-venue-text {
+			font-size: 14px;
+		}
+		.show-sponsor {
+			font-size: 10px;
+		}
+		.show-artist {
+			font-size: clamp(22px, 6.5vw, 30px);
+			margin: 0 0 6px;
+		}
+		.show-supporting {
+			font-size: 11px;
+			margin: 0;
+		}
+
+		/* Row 2 — bio (clamped so it can't push buttons off-screen) */
+		.show-bio {
+			grid-column: auto;
+			padding: 0;
+			font-size: 13px;
+			line-height: 1.45;
+			max-height: 22dvh;
+			overflow-y: auto;
+			-webkit-line-clamp: unset;
+			line-clamp: unset;
+			display: block;
+			text-align: left;
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+		}
+		.show-bio::-webkit-scrollbar {
+			display: none;
+		}
+
+		/* Row 3 — actions stacked, full-width, comfortable tap targets */
+		.show-actions {
+			grid-column: auto;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			margin-top: 4px;
+		}
+		.show-actions .btn {
+			width: 100%;
+			padding: 12px 16px;
+			font-size: 14px;
+		}
+
+		/* Dual-event days: keep side-by-side but require manual horizontal scroll */
 		.shows-list.is-dual {
 			display: flex;
 			flex-direction: row;
+			grid-template-columns: none;
 			overflow-x: auto;
 			scroll-snap-type: x mandatory;
 			gap: 16px;
 			padding-bottom: 12px;
+			-webkit-overflow-scrolling: touch;
 			-ms-overflow-style: none;
 			scrollbar-width: none;
 		}
@@ -549,41 +693,37 @@
 		.shows-list.is-dual .show-row {
 			display: flex;
 			flex-direction: column;
-			flex: 0 0 85%;
+			grid-template-columns: none;
+			flex: 0 0 88%;
 			scroll-snap-align: center;
 			height: auto;
 			min-height: auto;
 		}
+		.shows-list.is-dual .show-top {
+			display: grid;
+			grid-template-columns: 38% 1fr;
+			gap: 12px;
+		}
 		.shows-list.is-dual .show-left {
 			height: auto;
+		}
+		.shows-list.is-dual .show-headline,
+		.shows-list.is-dual .show-bio,
+		.shows-list.is-dual .show-actions {
+			padding: 0;
 		}
 		.shows-list.is-dual .show-bio {
 			-webkit-line-clamp: unset;
 			line-clamp: unset;
 			display: block;
-			overflow: visible;
+			max-height: 22dvh;
+			overflow-y: auto;
 		}
-		.shows-list.is-dual .show-right {
-			padding: 20px;
+		.shows-list.is-dual .show-artist {
+			font-size: clamp(20px, 6vw, 28px);
 		}
-
-		.media-container {
-			aspect-ratio: 3 / 4;
-			height: auto;
-			border-bottom: 1px solid var(--line);
-		}
-		.show-venue-text {
-			font-size: 16px;
-		}
-		.show-artist {
-			font-size: clamp(28px, 8vw, 40px);
-		}
-		.show-actions {
-			flex-direction: column;
-			gap: 12px;
-		}
-		.show-actions .btn {
-			width: 100%;
+		.shows-list.is-dual .show-venue-text {
+			font-size: 14px;
 		}
 	}
 </style>

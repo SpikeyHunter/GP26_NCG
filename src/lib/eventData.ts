@@ -171,7 +171,7 @@ export const eventDays: EventDay[] = [
 		shows: [
 			{
 				artist: 'TIMMY TRUMPET',
-				supporting: ['TWINSICK', 'INVITÉS SPÉCIAUX', 'MVNGO'],
+				supporting: ['TWINSICK', 'MVNGO'],
 				venue: 'NEW CITY GAS',
 				posterUrl: lineup.flyer_may24_timmy,
 				posterVideoUrl: lineup.flyer_may24_timmy_video, // <-- ADDED
