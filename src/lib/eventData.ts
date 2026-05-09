@@ -126,7 +126,7 @@ export const eventDays: EventDay[] = [
 				posterVideoUrl: lineup.flyer_may23_jameshype_video, // <-- ADDED
 				setupImageUrl: setup.main_room,
 				aboutArtist:
-					'UK DJ and producer James Hype is known for his explosive live mixing skills and high-energy house productions that have become staples on dance floors worldwide. With hundreds of millions of streams, chart-topping releases like “Ferrari,” and performances at major festivals including Tomorrowland, EDC, and Lollapalooza, James Hype has established himself as one of the leading names in modern electronic music.',
+					'James Hype is a UK DJ and producer known for explosive live mixing and high-energy house tracks like “Ferrari.” With hundreds of millions of streams and performances at major festivals including Tomorrowland, Electric Daisy Carnival, and Lollapalooza, he has become one of electronic music’s biggest global acts.',
 				setTimes: [
 					{ time: '10:00PM', act: 'DOORS' },
                     { time: '10:00PM', act: 'STEF AGOSTINO' },
