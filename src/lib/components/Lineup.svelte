@@ -585,6 +585,13 @@
 			min-height: auto;
 		}
 
+		.show-row[data-date='22'] .show-poster,
+		.show-row[data-date='22'] .show-video,
+		.show-row[data-date='23'] .show-poster,
+		.show-row[data-date='23'] .show-video {
+			object-position: center top;
+		}
+
 		/* SHOW-ROW becomes a 3-row vertical stack designed to fit iPhone height. */
 		.show-row {
 			display: flex;
@@ -611,12 +618,6 @@
 			height: auto;
 			/* Default: no offset */
 			transform: translateY(0);
-		}
-
-		/* ── REQUESTED: offset May 22 + May 23 flyers down ~10px on mobile ── */
-		.show-row[data-date='22'] .show-left,
-		.show-row[data-date='23'] .show-left {
-			transform: translateY(20px);
 		}
 
 		.media-container {
