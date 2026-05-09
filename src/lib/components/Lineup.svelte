@@ -616,7 +616,7 @@
 		/* ── REQUESTED: offset May 22 + May 23 flyers down ~10px on mobile ── */
 		.show-row[data-date='22'] .show-left,
 		.show-row[data-date='23'] .show-left {
-			transform: translateY(10px);
+			transform: translateY(20px);
 		}
 
 		.media-container {
