@@ -24,7 +24,7 @@
 		</div>
 		
 		<div class="nav-right">
-			<a href="#tickets" class="nav-cta">TICKETS</a>
+			<a href="https://www.tixr.com/groups/newcitygas" class="nav-cta">TICKETS</a>
 			<button class="mobile-toggle" onclick={toggleMenu} aria-label="Toggle menu">
 				{menuOpen ? '✕' : '☰'}
 			</button>

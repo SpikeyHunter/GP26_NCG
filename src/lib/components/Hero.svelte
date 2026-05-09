@@ -12,7 +12,7 @@
 
 	<div class="hero-video-wrapper">
 		<video
-			src="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/hero/GP26_Video-Animation.mov"
+			src="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Hero/GP26_Video-Animation.webm"
 			autoplay
 			loop
 			muted

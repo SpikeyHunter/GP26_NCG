@@ -431,6 +431,7 @@
 		font-weight: 800;
 		color: var(--show-accent);
 		line-height: 1.1;
+        text-align: justify;
 	}
 	.show-sponsor {
 		font-size: 11px;
@@ -459,7 +460,7 @@
 		line-height: 1.55;
 		color: var(--ink-dim);
 		margin-bottom: 20px;
-		text-align: left; /* No more justify — was creating word-island spacing */
+		text-align: justify; /* No more justify — was creating word-island spacing */
 	}
 	.show-actions {
 		display: flex;
