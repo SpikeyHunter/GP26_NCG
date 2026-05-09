@@ -593,7 +593,8 @@
 		}
 		.show-row[data-date='22'] .show-bio,
 		.show-row[data-date='23'] .show-bio {
-			padding-top: 12px;
+			padding-top: 20px;
+            text-align:justify;
 		}
 
 		/* SHOW-ROW becomes a 3-row vertical stack designed to fit iPhone height. */
@@ -690,7 +691,7 @@
 			-webkit-line-clamp: unset;
 			line-clamp: unset;
 			display: block;
-			text-align: left;
+			text-align: justify;
 			-ms-overflow-style: none;
 			scrollbar-width: none;
 		}
