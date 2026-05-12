@@ -33,7 +33,7 @@
 
 <style>
 	.venue {
-		padding: 64px 0;
+		padding-top: 40px;
 		border-top: 1px solid var(--line);
 	}
 	.venue-grid {

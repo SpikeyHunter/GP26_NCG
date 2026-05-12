@@ -7,6 +7,13 @@ export const hero = {
 	background: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/hero/Hero_BG_Car.jpg'
 };
 
+// ─── HOLTS section ───────────────────────────────────────────────────
+export const holts = {
+	image_1: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Food-1.1.jpeg',
+	image_2: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Food-1.1.jpeg',
+	image_3: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Food-1.1.jpeg'
+};
+
 // ─── LINEUP (event flyers) ───────────────────────────────────────────
 export const lineup = {
 	flyer_may21_nico:       'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Nico4.jpg',

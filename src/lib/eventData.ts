@@ -8,7 +8,7 @@ import { lineup, setup } from './images';
 export interface Show {
 	artist: string;
 	supporting?: string[];
-	venue: 'NEW CITY GAS' | 'BAZART';
+	venue: 'NEW CITY GAS' | 'NUITS BAZART';
 	posterUrl: string;
 	posterVideoUrl?: string;
 	setupImageUrl?: string;
@@ -19,6 +19,57 @@ export interface Show {
 	accentColor: string;
 	sponsor?: string;
 }
+import { holts } from './images';
+
+export const holtsData = {
+	title: 'THE BIG RACE 2026',
+	presenters: 'Produkt, New City Gas, Holt Renfrew Ogilvy & INITIO Parfums Prives presents',
+	tagline:
+		'For three days, the 5th floor transforms into an immersive cultural playground where art, scent, sound, and energy converge. Three days. Three energies. One destination.',
+	address: ['Holt Renfrew Ogilvy', '1307 Saint-Catherine St, Montreal, Quebec', '5th Floor'],
+	rsvpUrl: 'https://link.produkt.ca/26-gp-holt',
+	ticketLimit: 'Limited to 4 tickets per client for this event.',
+
+	// !!! REPLACE YOUR SCHEDULE ARRAY WITH THIS !!!
+	schedule: [
+		{
+			dayName: 'THURSDAY',
+			dateNum: 'MAY 21',
+			time: '1pm to 8pm',
+			imgSrc: holts.image_1,
+			title: 'ART. MUSIC. VIBE.',
+			detail:
+				'Leo Vergara exhibit, where contemporary art meets sound and atmosphere. Sounds by MVNGO and Stef Agostino.',
+			sets: [
+				{ time: '1pm to 4pm', act: 'MVNGO' },
+				{ time: '4pm to 8pm', act: 'Stef Agostino' }
+			]
+		},
+		{
+			dayName: 'FRIDAY',
+			dateNum: 'MAY 22',
+			time: '1pm to 5pm',
+			imgSrc: holts.image_2,
+			title: 'RESET. BODY. ENERGY.',
+			detail:
+				'Sensorial ritual by JOY Wellness Club awakening the body through essential oils. Elevated sound by Choby & Rim SDL.',
+			sets: [
+				{ time: '1pm to 3pm', act: 'Choby' },
+				{ time: '3pm to 5pm', act: 'Rim SDL' }
+			]
+		},
+		{
+			dayName: 'SATURDAY',
+			dateNum: 'MAY 23',
+			time: '12pm to 5pm',
+			imgSrc: holts.image_3,
+			title: 'CAFFEINE. CULTURE. BEATS.',
+			detail:
+				'A high-frequency coffee ritual where culture meets movement with Eviatar b2b Tali Rose.',
+			sets: [{ time: '12pm to 5pm', act: 'Eviatar & Tali Rose' }]
+		}
+	]
+};
 
 export interface EventDay {
 	date: string;
@@ -48,12 +99,13 @@ export const eventDays: EventDay[] = [
 					'French producer and DJ Nico De Andrea is known for blending emotive pop, afro house, and techno into melodic, energetic sets. With over 100 million Spotify streams and performances in more than 40 countries, he has earned support from artists like Black Coffee, Solomun, and Diplo while playing iconic venues including Pacha Ibiza and Ministry of Sound.',
 				setTimes: [
 					{ time: '10:00PM', act: 'DOORS' },
-                    { time: '10:00PM', act: 'PASKAL DAZE' },
+					{ time: '10:00PM', act: 'PASKAL DAZE' },
 					{ time: '12:00AM', act: 'NICO DE ANDREA B2B MAXI MERAKI B2B LUCH' },
 					{ time: '03:00AM', act: 'CURFEW' }
 				],
 				ticketUrl: 'https://link.produkt.ca/26-gp-nml',
-				reservationUrl: 'https://newcitygas.com/event/nico-de-andrea-b2b-maxi-meraki-b2b-luch-186264/#reservations',
+				reservationUrl:
+					'https://newcitygas.com/event/nico-de-andrea-b2b-maxi-meraki-b2b-luch-186264/#reservations',
 				accentColor: '#DEDEDE',
 				sponsor: 'PRODUKT present'
 			}
@@ -77,29 +129,30 @@ export const eventDays: EventDay[] = [
 					'Kaytranada is a Montreal-born producer and DJ known for his signature blend of house, hip-hop, R&B, and electronic music. A Grammy Award-winning artist, he has collaborated with names like Anderson .Paak, H.E.R., and The Weeknd while performing at major festivals and iconic venues worldwide.',
 				setTimes: [
 					{ time: '10:00PM', act: 'DOORS' },
-                    { time: '10:00PM', act: 'DEL ARTE' },
+					{ time: '10:00PM', act: 'DEL ARTE' },
 					{ time: '11:30PM', act: 'LOU PHELPS' },
 					{ time: '12:45AM', act: 'KAYTRANADA (DJ SET)' },
 					{ time: '02:30AM', act: 'TBD' },
 					{ time: '03:00AM', act: 'CURFEW' }
 				],
 				ticketUrl: 'https://link.produkt.ca/26-gp-kay',
-				reservationUrl: 'https://newcitygas.com/event/kaytranada-dj-set-lou-phelps-181527/#reservations',
+				reservationUrl:
+					'https://newcitygas.com/event/kaytranada-dj-set-lou-phelps-181527/#reservations',
 				accentColor: '#C2A666',
-				sponsor: 'PATRON TEQUILA & PRODUKT present'
+				sponsor: 'PRODUKT & PATRON TEQUILA present'
 			},
 			{
 				artist: 'PAUZA',
 				supporting: ['LAURA SCAVO', 'EVIATAR'],
-				venue: 'BAZART',
+				venue: 'NUITS BAZART',
 				posterUrl: lineup.flyer_may22_pauza,
 				posterVideoUrl: lineup.flyer_may22_pauz_video, // <-- ADDED
 				setupImageUrl: setup.bazart_setup,
 				aboutArtist:
-					"PAUZA (Zahira Sánchez and Paula Fernández) are the first first female electronic duo from Havana, Cuba. The duo has re-interpreted the cultural current of house music by adding latin rhythms and Cuban folklore.",
+					'PAUZA (Zahira Sánchez and Paula Fernández) are the first first female electronic duo from Havana, Cuba. The duo has re-interpreted the cultural current of house music by adding latin rhythms and Cuban folklore.',
 				setTimes: [
 					{ time: '10:00PM', act: 'DOORS' },
-                    { time: '10:00PM', act: 'EVIATAR' },
+					{ time: '10:00PM', act: 'EVIATAR' },
 					{ time: '11:30PM', act: 'LAURA SCAVO' },
 					{ time: '01:00AM', act: 'PAUZA' },
 					{ time: '03:00AM', act: 'CURFEW' }
@@ -107,7 +160,7 @@ export const eventDays: EventDay[] = [
 				ticketUrl: 'https://link.produkt.ca/26-gp-pa',
 				reservationUrl: 'https://newcitygas.com/event/pauza-laura-scavo-181824/#reservations',
 				accentColor: '#E8D9B7',
-				sponsor: 'ARMAND DE BRIGNAC, BAZART & PRODUKT present'
+				sponsor: 'PRODUKT & ARMAND DE BRIGNAC present'
 			}
 		]
 	},
@@ -129,7 +182,7 @@ export const eventDays: EventDay[] = [
 					'James Hype is a UK DJ and producer known for explosive live mixing and high-energy house tracks like “Ferrari.” With hundreds of millions of streams and performances at major festivals including Tomorrowland, Electric Daisy Carnival, and Lollapalooza, he has become one of electronic music’s biggest global acts.',
 				setTimes: [
 					{ time: '10:00PM', act: 'DOORS' },
-                    { time: '10:00PM', act: 'STEF AGOSTINO' },
+					{ time: '10:00PM', act: 'STEF AGOSTINO' },
 					{ time: '11:30PM', act: 'DANSYN' },
 					{ time: '01:00AM', act: 'JAMES HYPE' },
 					{ time: '03:00AN', act: 'CURFEW' }
@@ -137,12 +190,12 @@ export const eventDays: EventDay[] = [
 				ticketUrl: 'https://link.produkt.ca/26-gp-jh',
 				reservationUrl: 'https://newcitygas.com/event/james-hype-dansyn-181526/#reservations',
 				accentColor: '#DF2A44',
-				sponsor: 'RED BULL RACING & PRODUKT present'
+				sponsor: 'PRODUKT & RED BULL RACING present'
 			},
 			{
 				artist: 'MAESIC',
 				supporting: ['SIMON FITCH', 'MALENA'],
-				venue: 'BAZART',
+				venue: 'NUITS BAZART',
 				posterUrl: lineup.flyer_may23_maesic,
 				posterVideoUrl: lineup.flyer_may23_maesic_video, // <-- ADDED
 				setupImageUrl: setup.bazart_setup,
@@ -150,7 +203,7 @@ export const eventDays: EventDay[] = [
 					'Maesic is known for blending tech house, afro house, melodic techno, and EDM into a forward-thinking sound inspired by global club culture. Supported by artists like Diplo, Fisher, and Malaa, Maesic has collaborated with names including Bob Sinclar and Hugel while rapidly emerging as one of dance music’s most exciting new talents.',
 				setTimes: [
 					{ time: '10:00PM', act: 'DOORS' },
-                    { time: '10:00PM', act: 'MALENA' },
+					{ time: '10:00PM', act: 'MALENA' },
 					{ time: '11:30PM', act: 'SIMON FITCH' },
 					{ time: '01:00AM', act: 'MAESIC' },
 					{ time: '03:00AM', act: 'CLOSE' }
@@ -158,7 +211,7 @@ export const eventDays: EventDay[] = [
 				ticketUrl: 'https://link.produkt.ca/26-gp-ma',
 				reservationUrl: 'https://newcitygas.com/event/maesic-simon-fitch-186084/#reservations',
 				accentColor: '#E8D9B7',
-				sponsor: 'ARMAND DE BRIGNAC, BAZART & PRODUKT present'
+				sponsor: 'PRODUKT & ARMAND DE BRIGNAC present'
 			}
 		]
 	},
@@ -180,7 +233,7 @@ export const eventDays: EventDay[] = [
 					'Australian DJ, producer, and live instrumentalist Timmy Trumpet is known for his explosive performances that combine high-energy electronic music with live trumpet playing. A multi-platinum selling artist and one of the top names in global dance music, Timmy Trumpet gained worldwide recognition with his hit “Freaks,” which has amassed over half a billion streams and topped charts across multiple countries.',
 				setTimes: [
 					{ time: '10:00PM', act: 'DOORS' },
-                    { time: '10:00PM', act: 'MVNGO' },
+					{ time: '10:00PM', act: 'MVNGO' },
 					{ time: '11:15PM', act: 'TWINSICK' },
 					{ time: '12:45AM', act: 'TIMMY TRUMPET' },
 					{ time: '02:00AM', act: 'TBD' },
@@ -189,7 +242,7 @@ export const eventDays: EventDay[] = [
 				ticketUrl: 'https://link.produkt.ca/26-gp-tt',
 				reservationUrl: 'https://newcitygas.com/event/timmy-trumpet-twinsick-185229/#reservations',
 				accentColor: '#44AA41',
-				sponsor: 'HEINEKEN & PRODUKT present'
+				sponsor: 'PRODUKT & HEINEKEN present'
 			}
 		]
 	}

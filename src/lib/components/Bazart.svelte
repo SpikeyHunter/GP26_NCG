@@ -19,13 +19,13 @@
 					alt="Nuits Bazart"
 					class="bazart-logo"
 				/>
-				<h2 class="bazart-title">The Lounge</h2>
+				<h2 class="bazart-title">969 Wellington Street, Montreal, QC</h2>
 				<p class="bazart-desc">{siteConfig.bazartTagline}</p>
 				<p class="bazart-desc">
-					Bazart hosts an intimate, refined parallel program during GP26. Curated for those who want
-					the energy of race week with the atmosphere of a private soirée.
+					Bazart hosts an intimate, refined parallel program during GP26.
+					Curated for those who want the energy of race week with the atmosphere of a private soirée.
 				</p>
-				<a href="https://www.opentable.ca/r/bazart-reservations-montreal?restref=1233340&lang=fr-CA&ot_source=Restaurant%20website&ot_campaign=2025%20Website%20Widget?font=trebuchetMs" class="btn btn-champagne">BAZART RESERVATIONS</a>
+				<a target="_blank" rel="noopener" href="https://www.google.com/maps/place/Bazart/@45.4947899,-73.5592937,1606m/data=!3m1!1e3!4m6!3m5!1s0x4cc91bf54bdfa5cf:0x670c15f6e7efd83!8m2!3d45.4947862!4d-73.5567134!16s%2Fg%2F11rg56r74s?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" class="btn btn-champagne">VIEW ON MAPS</a>
 			</div>
 		</div>
 	</div>
@@ -33,7 +33,7 @@
 
 <style>
 	.bazart {
-		padding: 64px 0;
+		padding: 40px;
 		background: linear-gradient(180deg, var(--bg) 0%, #1a1410 100%);
 		font-family: var(--font-bazart);
 	}
@@ -58,20 +58,23 @@
 	}
 	.bazart-title {
 		color: var(--champagne);
-		font-family: var(--font-bazart);
+		font-family: var(--font-body);
 		font-weight: 600;
-		font-size: clamp(46px, 4.5vw, 66px);
-		line-height: 1;
+		font-size: clamp(16px, 4.5vw, 20px);
+		line-height: 1.3;
 		margin: 0 0 28px;
-		white-space: nowrap;
+		white-space: normal; 
+		word-wrap: break-word; 
+		opacity: 0.8;
 	}
 	.bazart-desc {
 		color: var(--champagne);
+		font-family: var(--font-body);
 		line-height: 1.5;
-		font-size: 17px;
+		font-size: 15px;
 		margin: 0 0 20px;
 		max-width: 480px;
-		font-weight: 600;
+		font-weight: 100;
 		opacity: 0.92;
 	}
 	.btn-champagne {
@@ -79,6 +82,14 @@
 		color: var(--bg);
 		font-family: var(--font-body);
 	}
+
+	.btn-champagne:hover {
+        /* This will now swap the background and show the border */
+        background: transparent;
+        border-color: var(--champagne);
+        color: var(--champagne);
+    }
+	
 
 	/* --- ASYMMETRIC 4-IMAGE GRID LOGIC --- */
 	.bazart-images {
@@ -117,11 +128,13 @@
 			grid-template-columns: 1fr;
 			gap: 48px;
 		}
-		/* On mobile, show the text first so users see the heading before the gallery */
+		/* On mobile/tablet, show the text first so users see the heading before the gallery */
 		.bazart-text {
 			order: -1;
 		}
 	}
+	
+	/* --- MOBILE ONLY TWEAKS --- */
 	@media (max-width: 768px) {
 		.bazart {
 			padding: 48px 0;
@@ -129,11 +142,15 @@
 		.bazart-grid {
 			gap: 32px;
 		}
+		.bazart-text {
+			align-items: flex-end; /* Aligns the logo and button to the right */
+			text-align: right; /* Aligns the text itself to the right */
+		}
 		.bazart-logo {
-			max-width: 240px;
+			max-width: 140px; /* Shrunk the logo for mobile */
 		}
 		.bazart-title {
-			font-size: 32px;
+			font-size: 24px; 
 		}
 		.bazart-images {
 			gap: 12px;

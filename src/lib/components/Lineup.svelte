@@ -121,9 +121,9 @@
 		<div class="container">
 			<div class="section-header lineup-header">
 				<span class="section-eyebrow lineup-eyebrow"
-					><span style="font-family: Arial, sans-serif;">&rarr;</span> THE LINEUP</span
+					><span style="font-family: Arial, sans-serif;">&rarr;</span> ALL GAS. NO BRAKES.</span
 				>
-				<h2 class="section-title lineup-title">FOUR NIGHTS.<br />ONE WEEKEND.</h2>
+				<h2 class="section-title lineup-title">FOUR NIGHTS.<br />RACE WEEK.</h2>
 			</div>
 
 			<div class="day-tabs">
@@ -145,7 +145,7 @@
 				{#each eventDays as day, i}
 					{#if activeDay === i}
 						<div class="shows-list" class:is-dual={day.shows.length > 1}>
-							{#each day.shows as show}
+							{#each day.shows as show, showIndex}
 								<div
 									class="show-row"
 									data-date={String(day.date)}
@@ -174,9 +174,8 @@
 
 										<div class="show-headline">
 											<div class="show-meta">
-												<span class="show-venue-text">{show.venue}</span>
 												{#if show.sponsor}
-													<span class="show-sponsor">{show.sponsor}</span>
+													<span class="show-venue-text">{show.sponsor}</span>
 												{/if}
 											</div>
 
@@ -184,6 +183,19 @@
 
 											{#if show.supporting?.length}
 												<p class="show-supporting">{show.supporting.join(' · ')}</p>
+											{/if}
+											{#if showIndex === 0}
+												<img
+													src="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/NCG_LOGO1_BLANC.png"
+													alt="New City Gas"
+													class="venue-logo"
+												/>
+											{:else}
+												<img
+													src="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Nuits_bazart_horz.png"
+													alt="Nuits Bazart"
+													class="venue-logo bazart-logo"
+												/>
 											{/if}
 										</div>
 									</div>
@@ -195,8 +207,15 @@
 
 									<!-- ROW 3 (mobile): actions -->
 									<div class="show-actions">
-										<a href={show.ticketUrl} class="btn btn-primary">BUY TICKETS</a>
-										<a href={show.reservationUrl} class="btn btn-ghost">BOOK A TABLE</a>
+										<a href={show.ticketUrl} target="_blank" rel="noopener" class="btn btn-primary"
+											>BUY TICKETS</a
+										>
+										<a
+											href={show.reservationUrl}
+											target="_blank"
+											rel="noopener"
+											class="btn btn-ghost">BOOK A TABLE</a
+										>
 									</div>
 								</div>
 							{/each}
@@ -218,6 +237,17 @@
 	/* ─────────────────────────────────────────────────────────
 	   SCROLL BLOCKER LOGIC (DESKTOP)
 	   ───────────────────────────────────────────────────────── */
+
+	.venue-logo {
+		width: 100%;
+		max-width: 150px;
+		height: auto;
+		margin-bottom: -10px;
+		margin-top: -10px;
+		margin-left: -9px;
+		display: block;
+		opacity: 0.9;
+	}
 	.lineup-section {
 		position: relative;
 		border-top: 1px solid var(--line);
@@ -408,9 +438,22 @@
 		grid-row: 3;
 		padding: 0 32px 32px 0;
 		display: flex;
+		flex-direction: row;
 		gap: 12px;
 		flex-wrap: wrap;
 		align-self: end;
+		width: auto;
+	}
+
+	.show-actions .btn {
+		width: auto;
+	}
+
+	.bazart-logo {
+		max-width: 160px;
+		margin-left: 0; /* Reset NCG's negative margin */
+		margin-top: -10px;
+		margin-bottom: 2px;
 	}
 
 	/* Dual Events — TWO columns side-by-side */
@@ -441,6 +484,13 @@
 	}
 	.shows-list.is-dual .show-actions {
 		padding: 0 20px 20px 0;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.shows-list.is-dual .show-actions .btn {
+		width: 100%;
 	}
 	.shows-list.is-dual .show-artist {
 		font-size: clamp(22px, 2.2vw, 32px);
@@ -448,9 +498,6 @@
 	}
 	.shows-list.is-dual .show-venue-text {
 		font-size: 15px;
-	}
-	.shows-list.is-dual .show-sponsor {
-		font-size: 10px;
 	}
 	.shows-list.is-dual .show-left {
 		height: 100%;
@@ -494,13 +541,7 @@
 		font-weight: 800;
 		color: var(--show-accent);
 		line-height: 1.1;
-		text-align: justify;
-	}
-	.show-sponsor {
-		font-size: 11px;
-		font-weight: 700;
-		color: var(--ink-faint);
-		line-height: 1.1;
+		text-align: left;
 	}
 	.show-artist {
 		font-family: var(--font-display);
@@ -543,6 +584,16 @@
 	   ───────────────────────────────────────────────────────── */
 	@media (max-width: 900px) {
 		/* Kill scroll hijacking */
+		.venue-logo {
+			width: 100%;
+			max-width: 150px;
+			height: auto;
+			margin-bottom: -30px;
+			margin-top: 5px;
+			margin-left: -12px;
+			display: block;
+			opacity: 0.9;
+		}
 		.lineup-section {
 			height: auto;
 		}
@@ -590,7 +641,7 @@
 		.show-row[data-date='23'] .show-poster,
 		.show-row[data-date='23'] .show-video {
 			object-position: center top;
-			padding-bottom: 10px;
+			padding-bottom: 0px;
 		}
 		.show-row[data-date='22'] .show-bio,
 		.show-row[data-date='23'] .show-bio {
@@ -652,9 +703,6 @@
 		.show-venue-text {
 			font-size: 14px;
 		}
-		.show-sponsor {
-			font-size: 10px;
-		}
 
 		/* ── REQUESTED: artist name fits on ONE line on mobile ── */
 		.show-artist {
@@ -701,24 +749,51 @@
 		}
 
 		/* ── REQUESTED: Buy Tickets + Book A Table SIDE BY SIDE on mobile ── */
+		/* ── REQUESTED: Buy Tickets + Book A Table SIDE BY SIDE on mobile ── */
+
+		/* 1. Single Events (Pushed to bottom) */
 		.show-actions {
 			grid-column: auto;
 			grid-row: auto;
 			padding: 0;
 			display: flex;
 			flex-direction: row;
+			width: 100%;
 			gap: 8px;
-			margin-top: 4px;
+			margin-top: auto;
 		}
-		.show-actions .btn {
+
+		/* 2. Dual Events (5px top margin) */
+		.shows-list.is-dual .show-actions {
+			grid-column: auto;
+			grid-row: auto;
+			padding: 0;
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			gap: 8px;
+			margin-top: 10px; /* Custom 5px margin for dual events */
+		}
+
+		/* 3. Button Sizing for BOTH */
+		.show-actions .btn,
+		.shows-list.is-dual .show-actions .btn {
 			flex: 1 1 0;
 			min-width: 0;
 			width: auto;
-			padding: 11px 10px;
+			padding: 16px 10px;
 			font-size: 12px;
 			letter-spacing: 0.08em;
 			text-align: center;
 			white-space: nowrap;
+		}
+
+		/* Mobile tweak for the secondary logo */
+		.bazart-logo {
+			max-width: 120px;
+			margin-top: 30px;
+			margin-bottom: -15px;
+			margin-left: 2px;
 		}
 
 		/* Dual-event days: keep side-by-side but require manual horizontal scroll */
@@ -740,12 +815,17 @@
 		.shows-list.is-dual .show-row {
 			display: flex;
 			flex-direction: column;
-			grid-template-columns: none;
-			grid-template-rows: none;
 			flex: 0 0 88%;
 			scroll-snap-align: center;
 			height: auto;
-			min-height: auto;
+			min-height: 400px; /* Give it a minimum height so buttons can push to bottom */
+			justify-content: flex-start;
+		}
+
+		/* Ensure the actions div always sticks to the bottom of that min-height */
+		.show-actions {
+			margin-top: auto !important; /* Force it to take up remaining space */
+			padding-top: 5px;
 		}
 		.shows-list.is-dual .show-top {
 			display: grid;

@@ -12,7 +12,7 @@
 
 	<div class="hero-video-wrapper">
 		<video
-			src="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Hero/GP26_Video-Animation.webm"
+			src="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/hero/GP26_Video-Animation_3.webm"
 			autoplay
 			loop
 			muted
@@ -41,8 +41,8 @@
 		align-items: center;
 		justify-content: flex-start;
 		overflow: hidden;
-		padding-top: 100px;
-		padding-bottom: 40px; /* <--- ADD THIS to match your other sections */
+		padding-top: 70px;
+		padding-bottom: 30px; /* <--- ADD THIS to match your other sections */
 	}
 
 	.hero-bg {
@@ -67,7 +67,6 @@
 		position: relative;
 		z-index: 2;
 		text-align: center;
-		padding: 0 32px;
 		width: 100%;
 
 		/* Replace 'auto' with a specific pixel value to bring it close to the video */

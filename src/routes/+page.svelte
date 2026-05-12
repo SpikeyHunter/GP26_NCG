@@ -6,12 +6,14 @@
 	import Bazart from '$lib/components/Bazart.svelte';
 	import Restaurant from '$lib/components/Restaurant.svelte';
 	import NftGallery from '$lib/components/NftGallery.svelte';
+	import Holts from '$lib/components/Holts.svelte';
 </script>
 
 <Hero />
 <Lineup />
-<Schedule />
 <NewCityGas />
 <Bazart />
+<Schedule />
 <Restaurant />
+<Holts />
 <NftGallery />

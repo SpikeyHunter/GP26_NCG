@@ -150,7 +150,7 @@
 
 <style>
 	.schedule {
-		padding: 40px 0 64px;
+		padding: 40px 0 0px;
 		background: var(--bg-2);
 	}
 

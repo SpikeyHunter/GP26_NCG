@@ -17,6 +17,9 @@
 				<p class="footer-label">VENUE</p>
 				<p>NEW CITY GAS</p>
 				<p>{siteConfig.venueAddress}</p>
+				<br>
+				<p>BAZART</p>
+				<p>969 Wellington St., Montreal, QC</p>
 			</div>
 			<div>
 				<p class="footer-label">FOLLOW</p>
@@ -24,8 +27,12 @@
 				<a href={siteConfig.socials.facebook}>FACEBOOK</a>
 			</div>
 			<div>
-				<p class="footer-label">PRODUCED BY</p>
-				<p>PRODUKT 20 ANS DE CULTURE</p>
+			
+				<img 
+					src="https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/NCG-Produkt.svg" 
+					alt="Produkt Logo" 
+					class="produkt-logo"
+				/>
 			</div>
 		</div>
 		<div class="footer-bottom">
@@ -115,6 +122,24 @@
 	.footer div a:hover {
 		color: var(--ink);
 	}
+	
+	/* --- New Logo Styles --- */
+	.produkt-logo {
+		display: block;
+		width: 100%;
+		max-width: 200px; /* Base size for desktop */
+		height: auto;
+		opacity: 0.8;
+		margin-top: 4px; /* Slight offset to align with text visually */
+	}
+
+	@media (max-width: 768px) {
+		.produkt-logo {
+			max-width: 160px; /* Scales down slightly on mobile */
+			opacity: 0.8;
+		}
+	}
+
 	.footer-bottom {
 		display: flex;
 		justify-content: space-between;
