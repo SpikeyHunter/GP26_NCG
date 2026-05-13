@@ -47,7 +47,7 @@ export const bazart = {
 	gallery_1: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Bazart%20Nuits/Bazart1.jpeg',
 	gallery_2: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Bazart%20Nuits/Bazart2.jpeg',
 	gallery_3: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Bazart%20Nuits/Bazart3.jpeg',
-	gallery_4: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Bazart%20Nuits/Bazart4.jpeg' // <-- ADDED THIS LINE
+	gallery_4: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Bazart%20Nuits/Bazart4.jpeg' // <-- ADDED THIS NE
 };
 
 // ─── RESTAURANT section ──────────────────────────────────────────────
