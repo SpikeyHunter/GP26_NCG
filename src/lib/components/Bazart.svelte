@@ -20,10 +20,12 @@
 					class="bazart-logo"
 				/>
 				<h2 class="bazart-title">969 Wellington Street, Montreal, QC</h2>
-				<p class="bazart-desc">{siteConfig.bazartTagline}</p>
+				<p class="bazart-desc">An intimate late-night experience within the Bazart universe, created as a refined extension of Race Week programming in Montreal.</p>
 				<p class="bazart-desc">
-					Bazart hosts an intimate, refined parallel program during GP26.
-					Curated for those who want the energy of race week with the atmosphere of a private soirée.
+					Designed as a more secluded counterpart to the main floor, it offers a curated Afrohouse soundscape set within a warm, atmospheric environment where music and space are intentionally shaped.
+				</p>
+				<p class="bazart-desc">
+					The experience is immersive yet restrained, built for guests seeking a more elevated setting during GP26.
 				</p>
 				<a target="_blank" rel="noopener" href="https://www.google.com/maps/place/Bazart/@45.4947899,-73.5592937,1606m/data=!3m1!1e3!4m6!3m5!1s0x4cc91bf54bdfa5cf:0x670c15f6e7efd83!8m2!3d45.4947862!4d-73.5567134!16s%2Fg%2F11rg56r74s?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" class="btn btn-champagne">VIEW ON MAPS</a>
 			</div>
@@ -70,10 +72,10 @@
 	.bazart-desc {
 		color: var(--champagne);
 		font-family: var(--font-body);
-		line-height: 1.5;
+		line-height: 1.2;
 		font-size: 15px;
 		margin: 0 0 20px;
-		max-width: 480px;
+		max-width: 520px;
 		font-weight: 100;
 		opacity: 0.92;
 	}

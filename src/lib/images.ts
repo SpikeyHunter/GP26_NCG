@@ -54,7 +54,7 @@ export const bazart = {
 export const restaurant = {
 	hero:   'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Bg-Bazart.2.JPG',
 	dish_1: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Food-1.3.jpg',
-	dish_2: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Food-2.3.JPG',
+	dish_2: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Food-2.4.jpeg',
 	dish_3: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Restaurant/Food-3.3.jpg'
 };
 

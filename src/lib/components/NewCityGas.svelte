@@ -15,10 +15,10 @@
 				<h3 class="venue-tagline">The Main Room</h3>
 				<p class="venue-address">{siteConfig.venueAddress}</p>
 				<p class="venue-desc">
-					Located in Griffintown, the historic New City Gas has been part of Montreal's story since
-					1849. Now reimagined as a hub for art, music, culture, and gastronomy, it hosts concerts,
-					events, the Bazart restaurant, and Canada's first crypto art gallery across unique indoor
-					and outdoor spaces.
+					Located in Griffintown, New City Gas is a landmark of Montreal’s industrial heritage, originally established in 1849. Today, it has been thoughtfully reimagined as a multidisciplinary cultural destination where art, music, gastronomy, and contemporary expression converge.
+				</p>
+				<p class="venue-desc">
+					Home to concerts, immersive events, the Bazart restaurant, and Canada’s first crypto art gallery, it unfolds across a series of distinctive indoor and outdoor spaces, each designed to host moments of culture at scale and intimacy alike.
 				</p>
 				<a href={siteConfig.venueMapUrl} target="_blank" rel="noopener" class="btn btn-ghost"
 					>VIEW ON MAPS →</a
@@ -81,10 +81,10 @@
 	.venue-desc {
 		text-wrap: balance;
 		color: var(--ink);
-		line-height: 1.5;
+		line-height: 1.2;
 		font-size: 15px;
-		margin: 0 0 32px;
-		max-width: 520px;
+		margin: 0 0 16px;
+		max-width: 720px;
 		font-family: var(--font-body);
         opacity: 0.9;
 	}

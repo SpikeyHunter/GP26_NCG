@@ -27,11 +27,17 @@
 				<h2 class="section-title schedule-title">AT BAZART</h2>
 			</div>
 
-			<p class="restaurant-description">
-				Immerse yourself in a Mediterranean-inspired culinary journey where vibrant flavors meet
-				locally sourced ingredients. Discover an unforgettable dining atmosphere perfect for
-				intimate evenings and spirited gatherings alike.
-			</p>
+			<div class="description-block">
+				<p class="restaurant-description">
+					A fully covered outdoor space, an atmospheric setting that brings the spirit of the
+					Mediterranean to the heart of Montreal.
+				</p>
+				<p class="restaurant-description">
+					The experience is complemented by a curated menu, cocktails, inspired by Mediterranean
+					flavours and seasonal ingredients. Each creation is designed with balance and detail in
+					mind, fresh, expressive, and built to extend the rhythm of the evening.
+				</p>
+			</div>
 
 			<div class="header-action">
 				<button class="btn btn-outline" onclick={toggleMenu}> VIEW MENU </button>
@@ -123,15 +129,21 @@
 		gap: 12px;
 	}
 
-	.restaurant-description {
+	.description-block {
 		grid-column: 1 / -1;
 		grid-row: 2 / 3;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.restaurant-description {
 		font-size: 16px;
 		line-height: 1.5;
 		color: var(--ink-dim);
 		margin: 0;
 		max-width: 100%;
-		text-align: justify;
+		/* text-align: justify; removed to fix the awkward letter spacing */
 	}
 
 	.schedule-eyebrow {
@@ -220,7 +232,7 @@
 		position: absolute;
 		top: -15px;
 		right: -15px;
-		background: #665344; /* Changed from var(--bg, #fff) */
+		background: #665344;
 		color: #ebddc2; /* Changed from var(--ink, #000) */
 		border: none;
 		width: 36px;
@@ -247,7 +259,8 @@
 		max-height: 90vh;
 		object-fit: contain;
 		display: block;
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Optional: Adds depth to the image itself */
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+		/* Optional: Adds depth to the image itself */
 	}
 
 	.hero-image {
@@ -278,16 +291,23 @@
 			row-gap: 20px;
 		}
 
-		.title-block,
-		.header-action,
-		.restaurant-description {
+		/* Explicitly defining row placement on mobile stops overlapping */
+		.title-block {
 			grid-column: 1 / -1;
+			grid-row: 1;
+		}
+
+		.description-block {
+			grid-column: 1 / -1;
+			grid-row: 2;
 		}
 
 		.header-action {
-			order: 3;
-			flex-direction: row;
+			grid-column: 1 / -1;
+			grid-row: 3;
+			justify-content: flex-start;
 			gap: 12px;
+			flex-wrap: wrap; 
 		}
 
 		.btn {

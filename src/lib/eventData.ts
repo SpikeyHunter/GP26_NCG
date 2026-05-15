@@ -107,7 +107,7 @@ export const eventDays: EventDay[] = [
 				reservationUrl:
 					'https://newcitygas.com/event/nico-de-andrea-b2b-maxi-meraki-b2b-luch-186264/#reservations',
 				accentColor: '#DEDEDE',
-				sponsor: 'PRODUKT present'
+				sponsor: 'PRODUKT presents'
 			}
 		]
 	},

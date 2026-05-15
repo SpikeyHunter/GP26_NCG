@@ -21,19 +21,19 @@
 		<div class="nft-grid">
 			<div class="nft-item">
 				<img src={nft.piece_1} alt="NFT Piece 1" />
-				<span class="caption">Genesis Collection</span>
+		
 			</div>
 			<div class="nft-item">
 				<img src={nft.piece_3} alt="NFT Piece 2" />
-				<span class="caption">Abstract Motion</span>
+				
 			</div>
 			<div class="nft-item">
 				<img src={nft.piece_2} alt="NFT Piece 3" />
-				<span class="caption">Digital Solitude</span>
+				
 			</div>
 			<div class="nft-item">
 				<img src={nft.piece_4} alt="NFT Piece 4" />
-				<span class="caption">Neural Networks</span>
+			
 			</div>
 		</div>
 	</div>
@@ -73,14 +73,6 @@
 		aspect-ratio: 1/1; 
 		object-fit: cover; 
 		transition: transform 0.3s; 
-	}
-
-	.caption {
-		font-size: 11px;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		color: var(--ink);
-		opacity: 0.8;
 	}
 	
 	.nft-grid img:hover { 

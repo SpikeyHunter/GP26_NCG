@@ -18,13 +18,14 @@
 				<p>NEW CITY GAS</p>
 				<p>{siteConfig.venueAddress}</p>
 				<br>
-				<p>BAZART</p>
+				<p>NUITS BAZART / BAZART</p>
 				<p>969 Wellington St., Montreal, QC</p>
 			</div>
 			<div>
 				<p class="footer-label">FOLLOW</p>
-				<a href={siteConfig.socials.instagram}>INSTAGRAM</a>
-				<a href={siteConfig.socials.facebook}>FACEBOOK</a>
+				<a href="https://www.instagram.com/thisisprodukt/" target="_blank" rel="noopener noreferrer">@thisisprodukt</a>
+				<a href="https://www.instagram.com/newcitygas/" target="_blank" rel="noopener noreferrer">@newcitygas</a>
+				<a href="https://www.instagram.com/bazartmontreal/" target="_blank" rel="noopener noreferrer">@bazart</a>
 			</div>
 			<div>
 			
@@ -127,15 +128,18 @@
 	.produkt-logo {
 		display: block;
 		width: 100%;
-		max-width: 200px; /* Base size for desktop */
+		max-width: 200px;
+		/* Base size for desktop */
 		height: auto;
 		opacity: 0.8;
-		margin-top: 4px; /* Slight offset to align with text visually */
+		margin-top: 4px;
+		/* Slight offset to align with text visually */
 	}
 
 	@media (max-width: 768px) {
 		.produkt-logo {
-			max-width: 160px; /* Scales down slightly on mobile */
+			max-width: 160px;
+			/* Scales down slightly on mobile */
 			opacity: 0.8;
 		}
 	}

@@ -16,8 +16,8 @@
 		
 		
 		<div class="nav-right">
-			<a href="https://www.tixr.com/groups/newcitygas" target="_blank" class="nav-cta">TICKETS</a>
-			<a href="https://www.tixr.com/groups/newcitygas" target="_blank" class="nav-rsvp">RESERVATIONS</a>
+			<a href="https://www.tixr.com/groups/newcitygas" target="_blank" class="nav-rsvp">TICKETS</a>
+			
 		</div>
 	</div>
 </nav>
@@ -35,15 +35,15 @@
 	.nav-rsvp { font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.15em; padding: 10px 20px; border: 1px solid var(--ink); color: var(--ink); text-decoration: none; transition: all 0.2s; white-space: nowrap; }
 	.nav-rsvp:hover { background: var(--ink); color: var(--bg); }
 
-	.nav-cta { font-family: var(--font-body); background: var(--ink); font-size: 12px; font-weight: 700; letter-spacing: 0.15em; padding: 10px 20px; border: 1px solid var(--ink); color: var(--bg); text-decoration: none; transition: all 0.2s; white-space: nowrap; }
-	.nav-cta:hover { background: var(--transparent); color: var(--ink); }
+	/*.nav-cta { font-family: var(--font-body); background: var(--ink); font-size: 12px; font-weight: 700; letter-spacing: 0.15em; padding: 10px 20px; border: 1px solid var(--ink); color: var(--bg); text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+	.nav-cta:hover { background: var(--transparent); color: var(--ink); }*/
 
 		
 	@media (max-width: 1100px) {
 		.nav-inner { padding: 12px 20px; }
 		
 		/* Adjust CTA padding on mobile so it doesn't take up too much space */
-		.nav-cta { padding: 8px 16px; font-size: 11px; }
+		/*.nav-cta { padding: 8px 16px; font-size: 11px; }*/
 		.nav-rsvp { padding: 8px 16px; font-size: 11px; }
 		
 	}
