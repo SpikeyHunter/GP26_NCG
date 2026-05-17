@@ -1,9 +1,0 @@
-{
-    "redirects": [
-      {
-        "source": "/:path*",
-        "destination": "https://gp26.newcitygas.com/:path*",
-        "permanent": true
-      }
-    ]
-  }
