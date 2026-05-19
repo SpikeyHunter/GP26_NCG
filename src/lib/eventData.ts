@@ -190,7 +190,7 @@ export const eventDays: EventDay[] = [
 				ticketUrl: 'https://link.produkt.ca/26-gp-jh',
 				reservationUrl: 'https://newcitygas.com/event/james-hype-dansyn-181526/#reservations',
 				accentColor: '#DF2A44',
-				sponsor: 'PRODUKT & RED BULL RACING present'
+				sponsor: 'PRODUKT presents'
 			},
 			{
 				artist: 'MAESIC',

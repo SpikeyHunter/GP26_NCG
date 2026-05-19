@@ -22,7 +22,7 @@ export const lineup = {
     flyer_may22_kaytranada_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Kay_Video.webm',
 	flyer_may22_pauza:      'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Pauza2.jpg',
     flyer_may22_pauz_video:  'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Pauza_Video.webm',
-	flyer_may23_jameshype:  'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/James3.jpg',
+	flyer_may23_jameshype:  'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/James4.png',
 	flyer_may23_jameshype_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/James_Video.webm',
 	flyer_may23_maesic:     'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Maesic3.jpg',
 	flyer_may23_maesic_video: 'https://vngekjtqbdnfeombtjnx.supabase.co/storage/v1/object/public/gp26-assets/Lineup/Maesic_Video.webm',
