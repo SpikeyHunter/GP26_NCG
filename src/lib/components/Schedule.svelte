@@ -22,7 +22,8 @@
 		maesic: '🇫🇷',
 		mvngo: '🇨🇦',
 		twinsick: '🇺🇸',
-		'timmy trumpet': '🇦🇺'
+		'timmy trumpet': '🇦🇺',
+		'ben willo': '🇨🇦',
 	};
 
 	function flagsFor(act: string): string {

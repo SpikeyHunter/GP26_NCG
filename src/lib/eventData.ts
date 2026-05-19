@@ -206,7 +206,7 @@ export const eventDays: EventDay[] = [
 					{ time: '10:00PM', act: 'MALENA' },
 					{ time: '11:30PM', act: 'SIMON FITCH' },
 					{ time: '01:00AM', act: 'MAESIC' },
-					{ time: '03:00AM', act: 'CLOSE' }
+					{ time: '03:00AM', act: 'CURFEW' }
 				],
 				ticketUrl: 'https://link.produkt.ca/26-gp-ma',
 				reservationUrl: 'https://newcitygas.com/event/maesic-simon-fitch-186084/#reservations',
