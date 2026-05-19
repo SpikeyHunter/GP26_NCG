@@ -132,7 +132,7 @@ export const eventDays: EventDay[] = [
 					{ time: '10:00PM', act: 'DEL ARTE' },
 					{ time: '11:30PM', act: 'LOU PHELPS' },
 					{ time: '12:45AM', act: 'KAYTRANADA (DJ SET)' },
-					{ time: '02:30AM', act: 'TBD' },
+					{ time: '02:30AM', act: 'DEL ARTE' },
 					{ time: '03:00AM', act: 'CURFEW' }
 				],
 				ticketUrl: 'https://link.produkt.ca/26-gp-kay',
@@ -236,7 +236,7 @@ export const eventDays: EventDay[] = [
 					{ time: '10:00PM', act: 'MVNGO' },
 					{ time: '11:15PM', act: 'TWINSICK' },
 					{ time: '12:45AM', act: 'TIMMY TRUMPET' },
-					{ time: '02:00AM', act: 'TBD' },
+					{ time: '02:00AM', act: 'BEN WILLO' },
 					{ time: '03:00AM', act: 'CURFEW' }
 				],
 				ticketUrl: 'https://link.produkt.ca/26-gp-tt',
